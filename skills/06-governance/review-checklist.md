@@ -1,0 +1,49 @@
+# Review Checklist — UI 交付验收清单
+
+> 建议每个 PR 或 AI 生成页面合入前逐项自检；存在不适用项写 N/A 与原因。
+
+## A. 结构 / Pattern
+
+- [ ] 页面选择了正确 Pattern，阅读 `overview.md` 及相关 Desktop/Mobile 文件。
+- [ ] Page Title / Section / Content / Primary Action 的层级清晰且相同类型页面一致。
+- [ ] 主要任务与关键入口未因布局变更而消失；返回路径可预测。
+- [ ] 页面级空间、分组空间、组件内部空间没有重复控制。
+
+## B. Visual Tokens
+
+- [ ] 字号、行高、字重来自语义 Typography。
+- [ ] 间距来自 4px 网格；无未经批准任意值。
+- [ ] 控件/卡片/浮层圆角按语义统一。
+- [ ] 背景/文字/边框/状态采用语义颜色；Light/Dark 都可辨认。
+- [ ] 图标风格与实际命中范围一致；状态不只靠图标或颜色。
+
+## C. Responsive & Input
+
+- [ ] 窄桌面窗口不会被错误当成手机 OS；触控宽屏也不会错误降为 mouse 密度。
+- [ ] 验证窄（320–420）、中（768–900）、宽（1024–1440）容器；没有无法解释的横向溢出。
+- [ ] 主操作可通过鼠标、键盘、触摸访问，关键功能不依赖 Hover/右键/长按。
+- [ ] 软键盘、安全区域、窗口调整和 200% 缩放不会遮挡主要操作。
+
+## D. States & Accessibility
+
+- [ ] Loading/Empty/Error/Success/Disabled 有清楚反馈和恢复路径。
+- [ ] 焦点顺序正确且可见；Dialog/Sheet 焦点进入和恢复正确。
+- [ ] 文字与控件对比度达到适用目标（标准见 [Accessibility](accessibility.md)）；触摸目标足够大。
+- [ ] 危险操作的动词、后果和确认/撤销方式合理。
+- [ ] 减少动画偏好、键盘导航和长文案已验证。
+
+## E. Deliverable
+
+- [ ] 例外已按[记录模板](exceptions-versioning.md)写明原因、影响范围、负责人、复审条件。
+- [ ] 适配说明包含测试的设备/容器/输入方式，而非只写“手机、桌面都可以”。
+- [ ] 未重复建立既有 shadcn/ui 同功能组件或复制第二套页面 Pattern。
+
+## 最小评审报告模板
+
+| 字段 | 填写 |
+|---|---|
+| Pattern | 例如 `settings` |
+| 测试场景 | 390 touch / 420 mouse+keyboard / 820 touch / 1440 mouse |
+| 视觉验证 | Light/Dark、Typography/Spacing/Radius |
+| 交互验证 | Focus、Loading、Error、Back、Resize |
+| 已知例外 | 约束、原因、风险、回归方式 |
