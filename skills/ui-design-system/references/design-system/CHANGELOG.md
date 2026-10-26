@@ -2,8 +2,8 @@
 
 ## v1.1.2 — 2026-10-26
 
-- **Skill packaging**：增加 `ui-design-system` Skill 入口、UI 元数据和按任务路由；规范文档保留在 `references/design-system/`，继续支持完整复制到项目 `docs/design-system/` 的 vendored 模式。
-- README、AGENTS 示例和 React adapter 明确区分已安装 Skill 与项目本地规范路径；基础参考与 Pattern、平台、adapter、示例改为按需读取。
+- **Skill packaging**：增加 `ui-design-system` Skill 入口、UI 元数据和按任务路由；规范文档统一保留在 Skill 的 `references/design-system/` 中。
+- README、AGENTS 示例和 React adapter 明确 Skill 是唯一规范来源；基础参考与 Pattern、平台、adapter、示例按需读取，不要求复制到项目。
 
 ## v1.1.1 — 2026-10-25
 

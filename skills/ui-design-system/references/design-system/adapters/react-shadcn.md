@@ -30,9 +30,8 @@
 
 ## 项目集成建议（非强制）
 
-以下路径描述的是把规范 vendored 到项目后的布局（例如复制到 `docs/design-system/`），不是已安装 Skill 的路径。使用 Skill 时，按包根目录 `SKILL.md` 的路由读取本 adapter。
+本 adapter 由已安装的 `ui-design-system` Skill 按需读取。以下项目路径只描述实现代码的组织方式，不要求把规范文档复制到项目中。
 
-- `docs/design-system`：版本化规范与 AI 约束。
 - `src/components/ui`：已有 shadcn 基础组件。
 - `src/components/patterns`：项目自己的 Pattern 组合实现。
 - `src/pages` 或路由目录：业务页面。

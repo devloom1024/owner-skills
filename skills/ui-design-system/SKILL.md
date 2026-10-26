@@ -30,11 +30,10 @@ Start with [the design-system index](references/design-system/README.md), then l
 
 Pattern references live under `references/design-system/04-patterns/<pattern>/`. Examples under `07-examples/` are structural guidance, not mandatory templates.
 
-## Installed Skill vs Vendored Docs
+## Single Source of Truth
 
-- When this skill is installed, read references through the paths above; do not copy them into the product source tree unless requested.
-- When a project wants versioned local documentation, copy the complete `references/design-system/` tree to `<project>/docs/design-system/` and optionally merge `AGENTS.example.md` into the project's `AGENTS.md`.
-- The vendored `AGENTS.example.md` and adapter path examples describe the project-copy mode. They do not change how references are resolved from this installed skill.
+- Use this installed Skill as the only UI design-system source. Read the references through the paths above; do not create or maintain a second copy under the product repository.
+- `AGENTS.example.md` is an optional project contract for invoking this Skill. It does not replace `SKILL.md` or duplicate the reference documents.
 
 ## Normative Strength
 

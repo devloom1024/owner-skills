@@ -8,11 +8,9 @@
 
 **统一 Pattern（信息与业务行为） → 分别规定 Desktop / Mobile 呈现（布局与输入） → 按 Design Tokens 落地 → 使用 Checklist 验收。**
 
-## 两种使用方式
+## 使用边界
 
-本目录是 `ui-design-system` Skill 的可按需读取参考资料。使用已安装的 Skill 时，从 Skill 的 `references/design-system/` 路径读取文档，不需要把规范复制到产品源码中。若项目需要提交一份可审计、可锁定版本的本地规范，再将本目录整体复制到 `<project>/docs/design-system/`，并保留相对链接。
-
-`AGENTS.example.md` 是 vendored 项目的可选 AI 开发契约，不是 Skill 的入口；Skill 的任务路由和读取顺序见包根目录的 `SKILL.md`。
+本目录是 `ui-design-system` Skill 的唯一参考资料。Skill 按任务从这里读取文档；不要把规范复制到产品仓库，也不要维护第二套 UI 规范。`AGENTS.example.md` 只是可选的项目 AI 契约，Skill 的任务路由和读取顺序见包根目录的 `SKILL.md`。
 
 ## 设计目标
 
@@ -73,7 +71,7 @@
 
 ## 使用方法
 
-1. 选择安装 Skill 按需读取，或 vendored 项目复制模式；不要混淆两种路径。
+1. 通过 `$ui-design-system` 使用本 Skill，按任务路由读取参考文档。
 2. 开发前阅读 [Tokens](02-foundations/design-tokens.md) + [组件规范](03-components/overview.md) + 目标 Pattern 的 `overview.md` 与适用平台文件。
 3. 设计先描述 **Anatomy、状态、导航和适配**，再用已有 shadcn/ui 组件实现，不要为同一语义造第二种组件。
 4. 完成后跑 [UI 验收清单](06-governance/review-checklist.md)；必要时按 [例外模板](06-governance/exceptions-versioning.md) 记录项目差异。
@@ -93,7 +91,7 @@
 
 ## 许可证
 
-规范文档以 [CC BY 4.0](LICENSE) 授权。按"使用方法"复制规范到项目时，保留本仓库来源与许可证声明即可。
+规范文档以 [CC BY 4.0](LICENSE) 授权。Skill 的分发、安装或再利用应保留来源与许可证声明。
 
 ## 参考来源与边界
 
