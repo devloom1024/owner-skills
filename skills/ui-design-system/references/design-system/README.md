@@ -8,6 +8,12 @@
 
 **统一 Pattern（信息与业务行为） → 分别规定 Desktop / Mobile 呈现（布局与输入） → 按 Design Tokens 落地 → 使用 Checklist 验收。**
 
+## 两种使用方式
+
+本目录是 `ui-design-system` Skill 的可按需读取参考资料。使用已安装的 Skill 时，从 Skill 的 `references/design-system/` 路径读取文档，不需要把规范复制到产品源码中。若项目需要提交一份可审计、可锁定版本的本地规范，再将本目录整体复制到 `<project>/docs/design-system/`，并保留相对链接。
+
+`AGENTS.example.md` 是 vendored 项目的可选 AI 开发契约，不是 Skill 的入口；Skill 的任务路由和读取顺序见包根目录的 `SKILL.md`。
+
 ## 设计目标
 
 1. **跨页面一致**：相同用途使用相同语义与页面模式；避免七八种 Settings。
@@ -67,11 +73,18 @@
 
 ## 使用方法
 
-1. 复制整个规范目录到 `<project>/docs/design-system/`，保留相对链接。
-2. 将 [AGENTS.example.md](AGENTS.example.md) 的规则合并到项目根 `AGENTS.md`。
-3. 开发前阅读 [Tokens](02-foundations/design-tokens.md) + [组件规范](03-components/overview.md) + 目标 Pattern 的 `overview.md` 与对应平台文件。
-4. 设计先描述 **Anatomy、状态、导航和适配**，再用已有 shadcn/ui 组件实现，不要为同一语义造第二种组件。
-5. 完成后跑 [UI 验收清单](06-governance/review-checklist.md)；必要时记录项目例外。
+1. 选择安装 Skill 按需读取，或 vendored 项目复制模式；不要混淆两种路径。
+2. 开发前阅读 [Tokens](02-foundations/design-tokens.md) + [组件规范](03-components/overview.md) + 目标 Pattern 的 `overview.md` 与适用平台文件。
+3. 设计先描述 **Anatomy、状态、导航和适配**，再用已有 shadcn/ui 组件实现，不要为同一语义造第二种组件。
+4. 完成后跑 [UI 验收清单](06-governance/review-checklist.md)；必要时按 [例外模板](06-governance/exceptions-versioning.md) 记录项目差异。
+
+## 按任务读取
+
+| 任务 | 先读 | 按需读取 |
+|---|---|---|
+| 实现页面 | Principles、Tokens、Components、Responsive、Input Methods、Accessibility、Review Checklist | 目标 Pattern 的 Shared/Desktop/Mobile；相关 adapter |
+| Review / 审计 | Principles、Tokens、Responsive、Input Methods、Accessibility、Review Checklist | 目标 Pattern；必要时读取 examples |
+| 扩展 Pattern 或 Token | README、相关 Principles、Tokens、Exceptions & Versioning | 受影响的 Pattern、平台规则、examples、adapters |
 
 ## v1.1 范围 / 非范围
 

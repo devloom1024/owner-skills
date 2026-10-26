@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Design System"
+  short_description: "Cross-platform UI design and review"
+  default_prompt: "Use $ui-design-system to implement or review a responsive UI."

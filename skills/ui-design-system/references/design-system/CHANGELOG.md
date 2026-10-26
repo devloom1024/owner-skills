@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.2 — 2026-10-26
+
+- **Skill packaging**：增加 `ui-design-system` Skill 入口、UI 元数据和按任务路由；规范文档保留在 `references/design-system/`，继续支持完整复制到项目 `docs/design-system/` 的 vendored 模式。
+- README、AGENTS 示例和 React adapter 明确区分已安装 Skill 与项目本地规范路径；基础参考与 Pattern、平台、adapter、示例改为按需读取。
+
 ## v1.1.1 — 2026-10-25
 
 - **可发现性修复**：README 目录表、design-tokens、review-checklist、AGENTS 示例补齐所有分项文档入口；accessibility、exceptions-versioning、platform-philosophy、Foundations 分项、05-platforms 分项、tailwind-tokens 不再是孤立文档。AGENTS 必读清单加入 accessibility.md。
