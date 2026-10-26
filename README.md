@@ -1,48 +1,49 @@
 # owner-skills
 
-Codex skills maintained by `devloom1024`.
+由 `devloom1024` 维护的 Codex Skill 仓库。
 
-## Included Skills
+## 包含的 Skill
 
 ### `ui-design-system`
 
-Specification-first UI design guidance for implementing and reviewing cross-platform interfaces across desktop, mobile, touch, keyboard, and responsive layouts.
+一个以规范优先（Specification First）为核心的 UI 设计 Skill，用于实现和审查覆盖桌面端、移动端、触控、键盘及响应式布局的跨平台界面。
 
-The skill provides:
+主要内容包括：
 
-- Design principles and platform adaptation rules.
-- Semantic design tokens for typography, spacing, color, radius, motion, focus, elevation, and safe areas.
-- Shared `Settings`, `List`, `Detail`, `Form`, `Navigation`, and `Overlays` patterns with Desktop/Mobile guidance.
-- Accessibility, state handling, review checklists, and exception governance.
-- Optional React, shadcn/ui, and Tailwind adapters.
+- UI 设计原则与平台适配规则。
+- 字体、间距、颜色、圆角、动效、焦点、层级和安全区等语义 Design Tokens。
+- `Settings`、`List`、`Detail`、`Form`、`Navigation`、`Overlays` 六类页面与交互 Pattern。
+- Desktop / Mobile 的布局和交互指导。
+- 无障碍、状态处理、交付验收清单和例外治理。
+- 可选的 React、shadcn/ui 和 Tailwind 适配指南。
 
-It is a design specification, not a React component library or a collection of pixel-perfect assets.
+本 Skill 是设计规范，不是 React 组件库，也不提供像素级设计稿或现成视觉资产。
 
-## Usage
+## 使用方式
 
-Install or register the skill directory:
+Skill 位于：
 
 ```text
 skills/ui-design-system/
 ```
 
-Then invoke it with:
+在 Codex 中使用：
 
 ```text
 $ui-design-system
 ```
 
-The skill is the single source of truth for this UI system. It loads the relevant references from its own `references/design-system/` directory as needed; projects should not maintain a second copy of the design-system documents.
+Skill 会根据任务需要，从自身的 `references/design-system/` 目录按需读取参考文档。它是 UI 设计规范的唯一来源，项目中不应再维护第二份设计规范副本。
 
-## Validation
+## 验证
 
-Validate the skill package with the Codex skill validator:
+可以使用 Codex Skill 验证脚本检查 Skill 包：
 
 ```bash
 python3 /Users/huangkl/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
   skills/ui-design-system
 ```
 
-## License
+## 许可证
 
-The UI design-system reference documents are licensed under [CC BY 4.0](skills/ui-design-system/LICENSE).
+UI 设计规范参考文档采用 [CC BY 4.0](skills/ui-design-system/LICENSE) 许可证。
