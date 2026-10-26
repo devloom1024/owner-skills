@@ -11,6 +11,19 @@
 | Disabled | 视觉可辨、语义禁用；必要时解释解锁条件 |
 | Offline / Sync | 标注离线或同步中，对可能丢失的数据提出明确说明 |
 
+## Pattern 状态扩展
+
+六大状态是跨页面的基础集合；下列状态按 Pattern 追加，不要用空白页或通用 Error 代替：
+
+| Pattern | 追加状态 | 最低反馈 |
+|---|---|---|
+| Settings | Policy-managed / Permission-limited | 显示来源、限制原因和可执行的替代路径 |
+| List | No Results / Partial Updating | 保留搜索与筛选条件，提供清除、重试或局部更新反馈 |
+| Detail | Not Found / Permission Denied / Stale Data | 说明对象身份、原因、返回路径和可恢复动作 |
+| Form | Unsaved / Conflict | 保留输入，说明保存状态、冲突范围和覆盖/合并选择 |
+| Navigation | Deep Link / Destination Unavailable | 显示当前位置、可返回的上级目的地和权限结果 |
+| Overlays | Validation / Dismissal Blocked | 在浮层内显示错误；未保存时阻止静默关闭 |
+
 ## 通用规则
 
 - 保存成功、失败、待保存状态必须可辨；不能只有 spinner 没有结果。
@@ -21,4 +34,4 @@
 
 ## 验收
 
-为每个新增页面写出：Loading、Empty、Error、Success 预期展示和恢复入口；在窄窗口/触屏/键盘下分别核查。
+为每个新增页面写出适用的基础状态（Loading、Empty、Error、Success、Disabled、Offline/Sync）和 Pattern 扩展状态的展示与恢复入口；在窄窗口/触屏/键盘下分别核查。

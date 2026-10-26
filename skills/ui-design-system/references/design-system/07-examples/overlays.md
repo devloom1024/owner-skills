@@ -8,7 +8,7 @@
 |---|---|---|---|
 | 对象“更多” | DropdownMenu | Action Sheet / 可见菜单 | 相同动作列表和后果 |
 | 删除确认 | AlertDialog | AlertDialog / 明确确认 Sheet | 显示对象和不可逆后果 |
-| 选择过滤条件 | Popover/侧面筛选区 | Filter Sheet | 选中、取消、重置语义相同 |
+| 选择过滤条件 | Popover/侧面筛选区 | Filter Drawer | 选中、取消、重置语义相同 |
 | 多步骤编辑 | 独立 Form Page | 独立 Form Page | 错误/草稿/提交一致 |
 
 ## 示例：删除操作

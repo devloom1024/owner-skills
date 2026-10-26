@@ -12,7 +12,7 @@
 
 ## 每次主题升级应检查
 
-1. shadcn/ui 基础组件或底层原语（Base UI）更新是否改变默认 Radius、Spacing、状态色与可访问性行为。
+1. shadcn/ui 基础组件或底层原语更新是否改变默认 Radius、Spacing、状态色与可访问性行为。
 2. 语义颜色是否在 Light/Dark 有对应值，文本对比度是否合格。
 3. Compact/Comfortable 密度是否可以单独控制，未因断点强制改成手机密度。
 4. 是否存在 `px-[13px]`、`rounded-[11px]` 一类缺乏 Token 依据的独立数值。

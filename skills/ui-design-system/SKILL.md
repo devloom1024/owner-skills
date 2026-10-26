@@ -7,13 +7,13 @@ metadata:
 
 # UI Design System
 
-Use this skill when a UI task needs consistent patterns, design tokens, platform adaptation, accessibility checks, or a documented exception. The reference tree is a normative design specification; it is not a drop-in component library.
+Use this skill when a UI task needs consistent patterns, design tokens, platform adaptation, accessibility checks, or a documented exception. The reference tree combines required semantic/accessibility rules with recommended visual baselines; it is not a drop-in component library.
 
 ## Workflow
 
 1. Identify the task mode: implement a UI, review/audit an existing UI, or extend the system (new Pattern, Token, or adapter).
 2. Identify the primary Pattern, runtime/platform, available container space, and input modes. Do not equate a narrow window with a phone or a touch screen with a small layout.
-3. Apply this priority order when guidance conflicts: accessibility and platform constraints, global Tokens and component semantics, Pattern `overview.md`, Pattern `desktop.md`/`mobile.md`, then a documented project exception.
+3. Apply this priority order when guidance conflicts: accessibility and platform constraints, global Tokens and component semantics, Pattern `overview.md`, Pattern `desktop.md`/`mobile.md`, then a documented project exception. Use [Normative Levels](references/design-system/06-governance/normative-levels.md) to distinguish `MUST`, `SHOULD`, and `MAY`.
 4. Read only the references needed for the mode and Pattern. Keep examples and technology adapters conditional.
 5. Implement or review against the selected references, then report the Pattern, references used, reused components/Tokens, tested viewport and input conditions, states checked, and exceptions.
 
@@ -25,7 +25,7 @@ Start with [the design-system index](references/design-system/README.md), then l
 |---|---|---|
 | Implement a page | `01-principles/design-philosophy.md`, `01-principles/platform-philosophy.md`, `02-foundations/design-tokens.md`, `03-components/overview.md`, `05-platforms/responsive.md`, `05-platforms/input-methods.md`, `06-governance/accessibility.md`, `06-governance/review-checklist.md` | The selected Pattern's `overview.md`, `desktop.md`, and `mobile.md`; adapters only for the chosen stack |
 | Review or audit UI | `01-principles/design-philosophy.md`, `02-foundations/design-tokens.md`, `05-platforms/responsive.md`, `05-platforms/input-methods.md`, `06-governance/accessibility.md`, `06-governance/review-checklist.md` | The selected Pattern files and examples when they clarify the finding |
-| Extend a Pattern or Token | `README.md`, the relevant principles, `02-foundations/design-tokens.md`, `06-governance/exceptions-versioning.md` | The closest existing Pattern, affected platform files, examples, and adapters |
+| Extend a Pattern or Token | `references/design-system/README.md`, the relevant principles, `02-foundations/design-tokens.md`, `06-governance/exceptions-versioning.md`, `06-governance/normative-levels.md` | The closest existing Pattern, affected platform files, examples, and adapters |
 | React/shadcn/Tailwind implementation | The shared references for the selected task | `adapters/react-shadcn.md` and/or `adapters/tailwind-tokens.md` |
 
 Pattern references live under `references/design-system/04-patterns/<pattern>/`. Examples under `07-examples/` are structural guidance, not mandatory templates.
@@ -47,4 +47,5 @@ For implementation or review work, include:
 - Reused components and Tokens, plus any new semantic value.
 - Container widths, input modes, theme/zoom, and states verified.
 - Accessibility and keyboard/touch checks.
+- Verification evidence: environment, tools or screenshots/recordings; state any uncovered checks.
 - Exceptions and their rationale; write “none” when there are no exceptions.

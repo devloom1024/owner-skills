@@ -12,7 +12,7 @@
 
 ## 组件映射（规范概念 → shadcn/ui 组件）
 
-> shadcn/ui 官方组件当前默认基于 **Base UI** 原语，文档同时提供 Base UI / React Aria / Radix 三种变体；Drawer 已由 vaul 迁移至 Base UI（旧版项目参见官方迁移指南，iOS Safari 需按文档为 `body` 设置定位）。规范只绑定下表的语义容器/概念，不绑定底层原语；实现以项目实际安装的 shadcn/ui 版本为准。
+> shadcn/ui 的组件目录、底层原语和迁移状态会随版本变化。规范只绑定下表的语义容器/概念，不绑定某个原语；实现前应以项目实际安装版本的官方文档为准。
 
 | 规范概念 | shadcn/ui 组件 | 说明 |
 |---|---|---|
@@ -21,7 +21,7 @@
 | Dropdown / Context Menu | `dropdown-menu` / `context-menu` | 收纳对象动作，不作为唯一入口 |
 | Popover / Tooltip | `popover` / `tooltip` | 锚定辅助信息，核心内容不只放 Tooltip |
 | Sheet（侧边抽屉） | `sheet` | 通用侧边滑出层 |
-| Action Sheet / Bottom Sheet（移动端底部） | `drawer` | 底部抽屉（现基于 Base UI，替代 vaul）；Overlays Pattern 移动端动作选择首选 |
+| Drawer / Bottom Sheet（移动端底部） | `drawer`（若项目版本提供） | 底部动作层；确认项目版本的 API、焦点和安全区行为 |
 | Navigation 侧栏 / Rail / 移动端抽屉 | `sidebar` | 官方侧栏组合，折叠 Rail 与移动端行为已内置；Navigation Pattern 优先使用，不要自拼 |
 | Form 字段（Label + 控件 + 说明/错误） | `field` | 官方字段组合；标签、描述、错误与控件的关联语义已内置 |
 | Empty 状态 | `empty` | Feedback 六大状态中空数据/无结果的呈现，配说明与下一步动作 |

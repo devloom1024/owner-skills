@@ -12,6 +12,9 @@
 | `color.border.default` | 边界与分隔线 | `border` |
 | `color.action.primary` | 主操作 | `primary` |
 | `color.action.on-primary` | 主操作上的文字 | `primary-foreground` |
+| `color.state.success` | 成功、已完成、同步完成 | `success`（项目主题变量） |
+| `color.state.warning` | 风险提示、待处理、部分完成 | `warning`（项目主题变量） |
+| `color.state.info` | 中性提示、进行中、同步状态 | `info`（项目主题变量） |
 | `color.state.danger` | 危险操作与错误 | `destructive` |
 | `color.focus.ring` | 键盘焦点轮廓 | `ring` |
 

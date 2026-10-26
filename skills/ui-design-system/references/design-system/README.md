@@ -1,8 +1,8 @@
-# UI Design System v1.1 — Specification First
+# UI Design System — Specification First
 
 > **定位**：跨项目、跨设备的 UI **设计规范**，不是 React 组件库。  
 > **适用**：React + TypeScript + shadcn/ui 优先，也可作为其他技术栈的设计依据。  
-> **版本**：v1.1.1 · 2026-10-25 · 初版可用 / 迭代完善。
+> **设计规范版本**：v1.1.1 · 2026-10-25。Skill 包版本单独维护，不与规范版本混用。
 
 ## 一句话原则
 
@@ -33,6 +33,8 @@
 | 7 | [07-examples](07-examples/README.md) | 如何查看结构示例及正反例？ |
 | 可选 | [adapters](adapters/react-shadcn.md) · [Tailwind Tokens](adapters/tailwind-tokens.md) | 如何映射到 React + shadcn/ui + Tailwind？ |
 | 项目接入 | [AGENTS.example.md](AGENTS.example.md) | 如何约束 AI 编码工具？ |
+
+规范强度与 `MUST` / `SHOULD` / `MAY` 的解释见 [Normative Levels](06-governance/normative-levels.md)。
 
 ## 页面模式导航
 
@@ -84,7 +86,7 @@
 | Review / 审计 | Principles、Tokens、Responsive、Input Methods、Accessibility、Review Checklist | 目标 Pattern；必要时读取 examples |
 | 扩展 Pattern 或 Token | README、相关 Principles、Tokens、Exceptions & Versioning | 受影响的 Pattern、平台规则、examples、adapters |
 
-## v1.1 范围 / 非范围
+## v1.1.1 范围 / 非范围
 
 **已包含**：六种核心页面/交互模式的 Shared + Desktop + Mobile 规范；主要 Tokens；组件使用约束；输入与响应式规则；文本结构示例；AI 接入规则。  
 **暂不包含**：可直接运行的 React 页面库、Figma 组件资源、品牌色方案、自动化视觉回归工具、完整 i18n 设计资产。示例是**结构参考，不是像素级最终设计图**。

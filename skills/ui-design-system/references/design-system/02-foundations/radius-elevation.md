@@ -14,6 +14,12 @@
 
 基础页面背景（canvas）→ 内容表面（surface）→ 浮层（overlay）；优先利用背景层次和适度边框，**阴影不是卡片必需属性**。暗色模式可利用细边界、明度区分层次，避免强烈高斯阴影。
 
+## Elevation 与层级
+
+- 使用 `elevation.surface`、`elevation.overlay`、`elevation.modal` 表达语义层级，不在业务页面散落自定义阴影。
+- 使用 `z.layer.base` → `sticky` → `overlay` → `modal` → `toast` 的顺序；具体数值由项目实现，但层级关系必须稳定。
+- 深色主题可用边界和表面明度替代阴影；阴影强度不能成为唯一的层级信息。
+
 ## 规则
 
 - 方形大面积主工作区可以保持直角；不要求把所有边界都卡片化。

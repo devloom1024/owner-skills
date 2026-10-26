@@ -26,11 +26,18 @@
 
 ## D. States & Accessibility
 
-- [ ] Loading/Empty/Error/Success/Disabled 有清楚反馈和恢复路径。
+- [ ] Loading/Empty/Error/Success/Disabled/Offline-Sync 及适用的 Pattern 扩展状态有清楚反馈和恢复路径。
 - [ ] 焦点顺序正确且可见；Dialog/Sheet 焦点进入和恢复正确。
 - [ ] 文字与控件对比度达到适用目标（标准见 [Accessibility](accessibility.md)）；触摸目标足够大。
 - [ ] 危险操作的动词、后果和确认/撤销方式合理。
 - [ ] 减少动画偏好、键盘导航和长文案已验证。
+
+## F. Evidence
+
+- [ ] 记录测试环境：运行平台、浏览器/宿主、视口或容器宽度、输入方式、主题与字号设置。
+- [ ] 200% 检查明确使用浏览器缩放、系统大字体或辅助技术中的哪一种；不要把它们混写成一个条件。
+- [ ] 对比度使用可复核的测量工具或计算结果；触摸目标按实际 hit area 而不是图标视觉尺寸测量。
+- [ ] 键盘与屏幕阅读器检查记录了至少一个关键任务路径；未覆盖项写明原因和风险。
 
 ## E. Deliverable
 

@@ -1,15 +1,16 @@
 # Changelog
 
-## v1.1.2 — 2026-10-26
+## Skill package 0.1.0 — 2026-10-26
 
 - **Skill packaging**：增加 `ui-design-system` Skill 入口、UI 元数据和按任务路由；规范文档统一保留在 Skill 的 `references/design-system/` 中。
 - README、AGENTS 示例和 React adapter 明确 Skill 是唯一规范来源；基础参考与 Pattern、平台、adapter、示例按需读取，不要求复制到项目。
+- 增加 `MUST` / `SHOULD` / `MAY` 规范强度、统一状态扩展、Overlay 语义映射、核心 Focus/Elevation/Safe Area/状态色 Token 和验收证据要求。
 
-## v1.1.1 — 2026-10-25
+## Design spec v1.1.1 — 2026-10-25
 
 - **可发现性修复**：README 目录表、design-tokens、review-checklist、AGENTS 示例补齐所有分项文档入口；accessibility、exceptions-versioning、platform-philosophy、Foundations 分项、05-platforms 分项、tailwind-tokens 不再是孤立文档。AGENTS 必读清单加入 accessibility.md。
 - **Token 总表补齐既有数值**（仅同步总表，不改变规则）：`type.label`、`type.micro`、`layout.width.detail=880px`、`size.row.list=44–52px`、`size.icon.visual=16–24px`。
-- adapters 新增“规范概念 → shadcn/ui 组件”映射表；明确 Action Sheet / Bottom Sheet 对应 `drawer`（经官方文档核实：shadcn 组件现默认基于 Base UI，提供 Base UI / React Aria / Radix 变体，Drawer 已从 vaul 迁移至 Base UI），并补充官方组合组件映射（`sidebar`/`field`/`empty`/`command`）。
+- adapters 新增“规范概念 → shadcn/ui 组件”映射表；补充 `drawer`、`sidebar`、`field`、`empty`、`command` 等组合组件映射，并要求实现时以项目安装版本的官方文档为准。
 - 新增 CC BY 4.0 许可证，匹配“复制规范到项目”的分发方式。
 
 ## v1.1.0 — 2026-10-25
