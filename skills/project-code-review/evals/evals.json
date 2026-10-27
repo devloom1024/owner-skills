@@ -1,0 +1,12 @@
+{
+  "skill_name": "project-code-review",
+  "evals": [
+    {
+      "id": 1,
+      "name": "审查功能变更",
+      "prompt": "根据设计记录、当前文档、diff 和测试审查一个功能变更。",
+      "expected_output": "带文件行号、影响和证据的 blocker/major/minor 发现。",
+      "files": []
+    }
+  ]
+}

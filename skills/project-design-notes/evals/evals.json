@@ -1,0 +1,19 @@
+{
+  "skill_name": "project-design-notes",
+  "evals": [
+    {
+      "id": 1,
+      "name": "MVP 提案",
+      "prompt": "为一个新项目写 MVP 设计记录，包含范围、验收标准、风险和未决问题。",
+      "expected_output": "状态为 proposed 的中文设计记录。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "实现收敛",
+      "prompt": "将已完成实现的提案转为 implemented，并说明实际偏差和验证。",
+      "expected_output": "现在时态的已实现决策和当前文档同步要求。",
+      "files": []
+    }
+  ]
+}

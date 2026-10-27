@@ -1,0 +1,19 @@
+{
+  "skill_name": "project-change-sync",
+  "evals": [
+    {
+      "id": 1,
+      "name": "代码影响检查",
+      "prompt": "检查修改状态转换和协议源但未修改文档的变更。",
+      "expected_output": "逐路径输出 covered/not-needed/review-required/missing 和证据。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "纯重构",
+      "prompt": "检查只重命名私有函数且行为不变的变更。",
+      "expected_output": "有测试和 API 证据支持的 not-needed。",
+      "files": []
+    }
+  ]
+}

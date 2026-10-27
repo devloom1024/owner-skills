@@ -1,0 +1,12 @@
+{
+  "skill_name": "skill-maintenance",
+  "evals": [
+    {
+      "id": 1,
+      "name": "拆分 Skill",
+      "prompt": "一个 Skill 同时负责文档、代码审查和版本发布，请提出拆分方案。",
+      "expected_output": "按主要职责拆分，说明触发边界、引用关系和验证。",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "skill_name": "project-simplification",
+  "evals": [
+    {
+      "id": 1,
+      "name": "发现重复所有权",
+      "prompt": "检查多个文档重复描述同一配置和状态。",
+      "expected_output": "指出事实所有者、证据、风险和保守的合并建议。",
+      "files": []
+    }
+  ]
+}

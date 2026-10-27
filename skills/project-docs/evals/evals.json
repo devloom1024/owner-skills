@@ -1,0 +1,19 @@
+{
+  "skill_name": "project-docs",
+  "evals": [
+    {
+      "id": 1,
+      "name": "初始化文档体系",
+      "prompt": "为一个新多包项目建立文档入口、目录职责、子系统参考和事实验证计划。",
+      "expected_output": "中文、证据驱动的最小文档方案。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "审计已有文档",
+      "prompt": "审计已有项目的 docs、AGENTS 和包 README，找出所有权、导航和当前事实问题。",
+      "expected_output": "只读审计报告和迁移映射。",
+      "files": []
+    }
+  ]
+}

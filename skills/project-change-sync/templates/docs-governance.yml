@@ -1,0 +1,8 @@
+paths:
+  services/<service>/**:
+    subsystem: docs/subsystems/<service>.md
+  packages/<package>/**:
+    package_readme: packages/<package>/README.md
+checks:
+  - local-links
+  - required-sections

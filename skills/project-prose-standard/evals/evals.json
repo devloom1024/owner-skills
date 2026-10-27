@@ -1,0 +1,12 @@
+{
+  "skill_name": "project-prose-standard",
+  "evals": [
+    {
+      "id": 1,
+      "name": "审查技术文案",
+      "prompt": "审查一段混合当前事实、设计过程和审查讨论的中文文档。",
+      "expected_output": "保留契约，删除过程叙述，给出逐项动作和理由。",
+      "files": []
+    }
+  ]
+}

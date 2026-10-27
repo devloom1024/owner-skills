@@ -1,0 +1,12 @@
+{
+  "skill_name": "project-test-reliability",
+  "evals": [
+    {
+      "id": 1,
+      "name": "诊断异步测试",
+      "prompt": "诊断一个只在并发 CI 中失败的异步测试。",
+      "expected_output": "说明共享资源、同步和清理证据，提出可验证修复。",
+      "files": []
+    }
+  ]
+}

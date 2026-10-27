@@ -1,0 +1,12 @@
+{
+  "skill_name": "project-pr-description",
+  "evals": [
+    {
+      "id": 1,
+      "name": "生成 PR 描述",
+      "prompt": "根据任务、diff、设计记录和测试输出生成中文 PR 描述。",
+      "expected_output": "包含目标、实现、文档影响、验证和未验证项。",
+      "files": []
+    }
+  ]
+}

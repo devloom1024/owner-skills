@@ -1,51 +1,50 @@
 ---
 name: ui-design-system
-description: Apply and review a specification-first, cross-platform UI design system for implementing, auditing, or extending product interfaces across desktop, mobile, touch, keyboard, and responsive layouts. Use it for design decisions and UI implementation guidance, not as a React component library or pixel-perfect asset pack.
+description: 使用规范优先的跨平台 UI 设计系统，实现、审查或扩展覆盖桌面、移动、触控、键盘和响应式布局的产品界面。用于设计决策和 UI 实现指导，不是 React 组件库，也不提供像素级设计资产。
 metadata:
-  short-description: Cross-platform UI design and review
+  short-description: 跨平台 UI 设计与审查
 ---
 
-# UI Design System
+# UI 设计系统
 
-Use this skill when a UI task needs consistent patterns, design tokens, platform adaptation, accessibility checks, or a documented exception. The reference tree combines required semantic/accessibility rules with recommended visual baselines; it is not a drop-in component library.
+当 UI 任务需要统一 Pattern、Design Tokens、平台适配、无障碍检查或记录项目例外时，使用此 Skill。参考资料包含必须遵守的语义和无障碍规则，以及可以按项目适配的视觉基线；它不是可直接安装的组件库。
 
-## Workflow
+## 工作流
 
-1. Identify the task mode: implement a UI, review/audit an existing UI, or extend the system (new Pattern, Token, or adapter).
-2. Identify the primary Pattern, runtime/platform, available container space, and input modes. Do not equate a narrow window with a phone or a touch screen with a small layout.
-3. Apply this priority order when guidance conflicts: accessibility and platform constraints, global Tokens and component semantics, Pattern `overview.md`, Pattern `desktop.md`/`mobile.md`, then a documented project exception. Use [Normative Levels](references/design-system/06-governance/normative-levels.md) to distinguish `MUST`, `SHOULD`, and `MAY`.
-4. Read only the references needed for the mode and Pattern. Keep examples and technology adapters conditional.
-5. Implement or review against the selected references, then report the Pattern, references used, reused components/Tokens, tested viewport and input conditions, states checked, and exceptions.
+1. 确定任务模式：实现 UI、审查已有 UI，或扩展系统中的 Pattern、Token 和适配器。
+2. 确定主要 Pattern、运行平台、可用容器空间和输入方式。不要把窄窗口等同于手机，也不要把触控输入等同于小布局。
+3. 发生冲突时按以下顺序处理：无障碍和平台约束、全局 Token 和组件语义、Pattern 的 `overview.md`、Pattern 的桌面/移动文件，最后是有记录的项目例外。使用规范强度区分 `MUST`、`SHOULD` 和 `MAY`。
+4. 只读取当前任务和 Pattern 需要的参考资料，技术适配器按所选技术栈加载。
+5. 实现或审查后，报告使用的 Pattern 和参考资料、复用的组件和 Token、验证的视口和输入条件、检查的状态，以及记录的例外。
 
-## Reference Routing
+## 参考资料路由
 
-Start with [the design-system index](references/design-system/README.md), then load the shared references below.
+从 [设计系统索引](references/design-system/README.md) 开始，再按任务读取参考资料。
 
-| Task | Shared references | Conditional references |
+| 任务 | 共享参考资料 | 按需参考资料 |
 |---|---|---|
-| Implement a page | `01-principles/design-philosophy.md`, `01-principles/platform-philosophy.md`, `02-foundations/design-tokens.md`, `03-components/overview.md`, `05-platforms/responsive.md`, `05-platforms/input-methods.md`, `06-governance/accessibility.md`, `06-governance/review-checklist.md` | The selected Pattern's `overview.md`, `desktop.md`, and `mobile.md`; adapters only for the chosen stack |
-| Review or audit UI | `01-principles/design-philosophy.md`, `02-foundations/design-tokens.md`, `05-platforms/responsive.md`, `05-platforms/input-methods.md`, `06-governance/accessibility.md`, `06-governance/review-checklist.md` | The selected Pattern files and examples when they clarify the finding |
-| Extend a Pattern or Token | `references/design-system/README.md`, the relevant principles, `02-foundations/design-tokens.md`, `06-governance/exceptions-versioning.md`, `06-governance/normative-levels.md` | The closest existing Pattern, affected platform files, examples, and adapters |
-| React/shadcn/Tailwind implementation | The shared references for the selected task | `adapters/react-shadcn.md` and/or `adapters/tailwind-tokens.md` |
+| 实现页面 | Principles、Tokens、Components、Responsive、Input Methods、Accessibility、Review Checklist | 目标 Pattern 的 `overview.md`、`desktop.md`、`mobile.md`；所选技术适配器 |
+| 审查或审计 UI | Principles、Tokens、Responsive、Input Methods、Accessibility、Review Checklist | 目标 Pattern 和能说明问题的示例 |
+| 扩展 Pattern 或 Token | 设计系统索引、相关 Principles、Tokens、例外和版本规则 | 受影响的 Pattern、平台文件、示例和适配器 |
+| React/shadcn/Tailwind 实现 | 所选任务的共享参考资料 | React/shadcn 和 Tailwind 适配器 |
 
-Pattern references live under `references/design-system/04-patterns/<pattern>/`. Examples under `07-examples/` are structural guidance, not mandatory templates.
+Pattern 位于 `references/design-system/04-patterns/<pattern>/`，示例位于 `07-examples/`。示例是结构参考，不是强制模板。
 
-## Single Source of Truth
+## 唯一规范来源
 
-- Use this installed Skill as the only UI design-system source. Read the references through the paths above; do not create or maintain a second copy under the product repository.
-- `AGENTS.example.md` is an optional project contract for invoking this Skill. It does not replace `SKILL.md` or duplicate the reference documents.
+已安装 Skill 的 `references/design-system/` 是 UI 设计规范的唯一来源。项目通过链接和 `AGENTS.example.md` 接入，不复制第二份规范。
 
-## Normative Strength
+## 规范强度
 
-Treat accessibility requirements, semantic behavior, keyboard reachability, focus handling, and platform safety constraints as required. Treat dimensions, breakpoints, density, and visual values described as recommended baselines as defaults that may be adapted when the project records the reason, impact, owner, and review condition using the exceptions template.
+无障碍、语义行为、键盘可达、焦点处理和平台安全约束属于必须遵守的规则。尺寸、断点、密度和视觉值属于推荐基线；项目可以适配，但要记录原因、影响、所有者和复审条件。
 
-## Completion Report
+## 完成报告
 
-For implementation or review work, include:
+实现或审查时包含：
 
-- Pattern and Shared/Desktop/Mobile references used.
-- Reused components and Tokens, plus any new semantic value.
-- Container widths, input modes, theme/zoom, and states verified.
-- Accessibility and keyboard/touch checks.
-- Verification evidence: environment, tools or screenshots/recordings; state any uncovered checks.
-- Exceptions and their rationale; write “none” when there are no exceptions.
+- 使用的 Pattern 以及共享、桌面、移动参考资料；
+- 复用的组件和 Token，以及新增的语义值；
+- 容器宽度、输入方式、主题/缩放和已验证状态；
+- 无障碍、键盘和触控检查；
+- 验证证据、环境、工具或截图/录屏，并说明未覆盖检查；
+- 例外及其理由；没有例外时写“无”。

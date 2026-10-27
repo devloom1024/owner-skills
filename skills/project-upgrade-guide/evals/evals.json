@@ -1,0 +1,12 @@
+{
+  "skill_name": "project-upgrade-guide",
+  "evals": [
+    {
+      "id": 1,
+      "name": "破坏性 API 变化",
+      "prompt": "为公开配置和 API 的破坏性变化生成升级指南。",
+      "expected_output": "包含版本、旧新行为、迁移、兼容性和验证。",
+      "files": []
+    }
+  ]
+}

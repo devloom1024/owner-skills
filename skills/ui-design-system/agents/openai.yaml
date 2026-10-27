@@ -1,4 +1,4 @@
 interface:
-  display_name: "UI Design System"
-  short_description: "Cross-platform UI design and review"
-  default_prompt: "Use $ui-design-system to implement or review a responsive UI."
+  display_name: "UI 设计系统"
+  short_description: "跨平台 UI 设计与审查"
+  default_prompt: "使用 $ui-design-system 实现或审查响应式 UI。"

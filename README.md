@@ -1,49 +1,78 @@
 # owner-skills
 
-由 `devloom1024` 维护的 Codex Skill 仓库。
+由 `devloom1024` 维护的中文 Codex Skill 仓库。
 
-## 包含的 Skill
+当前版本：`1.0.0`
 
-### `ui-design-system`
+## Skill 目录
 
-一个以规范优先（Specification First）为核心的 UI 设计 Skill，用于实现和审查覆盖桌面端、移动端、触控、键盘及响应式布局的跨平台界面。
+### 设计与文档
 
-主要内容包括：
+- [`project-docs`](skills/project-docs/SKILL.md)：建立、整理、审计和验证项目文档。
+- [`project-design-notes`](skills/project-design-notes/SKILL.md)：管理 MVP 设计、提案、已实现决策和生命周期。
+- [`project-change-sync`](skills/project-change-sync/SKILL.md)：检查代码变化是否同步到正确的文档所有者。
+- [`project-prose-standard`](skills/project-prose-standard/SKILL.md)：审查文档、注释、JSDoc、提示词和诊断文案。
 
-- UI 设计原则与平台适配规则。
-- 字体、间距、颜色、圆角、动效、焦点、层级和安全区等语义 Design Tokens。
-- `Settings`、`List`、`Detail`、`Form`、`Navigation`、`Overlays` 六类页面与交互 Pattern。
-- Desktop / Mobile 的布局和交互指导。
-- 无障碍、状态处理、交付验收清单和例外治理。
-- 可选的 React、shadcn/ui 和 Tailwind 适配指南。
+### 开发与审查
 
-本 Skill 是设计规范，不是 React 组件库，也不提供像素级设计稿或现成视觉资产。
+- [`project-code-review`](skills/project-code-review/SKILL.md)：根据目标、设计、代码、文档和测试审查变更。
+- [`project-test-reliability`](skills/project-test-reliability/SKILL.md)：诊断测试隔离、并发、异步清理和 CI 不稳定。
+- [`project-pr-description`](skills/project-pr-description/SKILL.md)：根据变更证据生成 PR 描述。
+- [`project-upgrade-guide`](skills/project-upgrade-guide/SKILL.md)：为外部可见破坏性变化生成升级指南。
+- [`project-simplification`](skills/project-simplification/SKILL.md)：发现重复、过度设计和可删除的复杂性。
 
-## 使用方式
+### Skill 仓库维护
 
-Skill 位于：
+- [`skill-maintenance`](skills/skill-maintenance/SKILL.md)：维护 Skill 目录、版本、评估和变更记录。
+
+### 现有设计系统
+
+- [`ui-design-system`](skills/ui-design-system/SKILL.md)：跨桌面、移动、触控、键盘和响应式布局的 UI 设计规范。
+
+## 推荐组合
+
+一次非平凡功能开发可以按以下顺序使用：
 
 ```text
-skills/ui-design-system/
+project-design-notes
+    ↓
+project-docs
+    ↓
+project-change-sync
+    ↓
+project-code-review
+    ↓
+project-prose-standard
+    ↓
+project-test-reliability
+    ↓
+project-pr-description
 ```
 
-在 Codex 中使用：
+如果变更影响外部用户或兼容性，增加 `project-upgrade-guide`。如果变更暴露出重复结构或不必要的复杂度，增加 `project-simplification`。
 
-```text
-$ui-design-system
-```
+## 使用规则
 
-Skill 会根据任务需要，从自身的 `references/design-system/` 目录按需读取参考文档。它是 UI 设计规范的唯一来源，项目中不应再维护第二份设计规范副本。
+每个 Skill 只拥有自己的执行流程、参考资料、模板、脚本和评估用例。仓库级说明、版本变化和授权信息分别由本文件、根 `CHANGELOG.md` 和根 `LICENSE` 统一维护。
+
+Skill 的人类可读内容使用中文。Skill 名称、目录名、路径、命令、代码、API、协议字段和机器状态值保留原样。
 
 ## 验证
 
-可以使用 Codex Skill 验证脚本检查 Skill 包：
+使用 Skill Creator 的快速验证脚本检查单个 Skill：
 
 ```bash
 python3 /Users/huangkl/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
-  skills/ui-design-system
+  skills/<skill-name>
 ```
 
-## 许可证
+检查整个仓库：
 
-UI 设计规范参考文档采用 [CC BY 4.0](skills/ui-design-system/LICENSE) 许可证。
+```bash
+for skill in skills/*; do
+  test -f "$skill/SKILL.md" || continue
+  python3 /Users/huangkl/.codex/skills/.system/skill-creator/scripts/quick_validate.py "$skill"
+done
+```
+
+完整变更记录见 [CHANGELOG.md](CHANGELOG.md)，授权信息见 [LICENSE](LICENSE)。
