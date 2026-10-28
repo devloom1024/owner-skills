@@ -37,6 +37,6 @@
 
 ## 6. 相关规范与验收
 
-[桌面端](desktop.md) · [移动端](mobile.md) · [示例](../../07-examples/form.md)
+[桌面端](desktop.md) · [Mobile](mobile.md) · [示例](../../07-examples/form.md)
 
 至少测试：必填缺失、格式错误、网络失败、重复提交、离开未保存、键盘提交、密码/敏感字段、长文本。

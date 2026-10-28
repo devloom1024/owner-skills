@@ -1,4 +1,4 @@
-# 适配器 — React + TypeScript + shadcn/ui（可选实现指南）
+# Adapter — React + TypeScript + shadcn/ui（可选实现指南）
 
 > 本文件解释“怎样映射”，**不是可复制运行的组件库**，不提供固定业务组件 API。
 

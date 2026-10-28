@@ -9,7 +9,7 @@ description: 维护 owner-skills 仓库及其 Skill 库。用于新增、拆分�
 
 ## 先读什么
 
-读取根 README、CHANGELOG、LICENSE、现有 Skill、[结构和边界](references/structure-and-boundaries.md)、[验证](references/validation.md)、[评估流程](references/eval-workflow.md)、[变更计划模板](templates/skill-change-plan.md) 和 [评估场景](evals/evals.json)。
+读取根 README、CHANGELOG、LICENSE、现有 Skill、[结构和边界](references/structure-and-boundaries.md)、[验证](references/validation.md)、[评估流程](references/eval-workflow.md)、[术语与语言](references/terminology.md)、[变更计划模板](templates/skill-change-plan.md) 和 [评估场景](evals/evals.json)。
 
 ## 工作流
 
@@ -18,7 +18,7 @@ description: 维护 owner-skills 仓库及其 Skill 库。用于新增、拆分�
 3. **编写入口**：frontmatter description 要写触发场景；正文包含安全边界、工作流、参考路由、输出格式和验证。
 4. **设计渐进加载**：每个 reference/template/eval 从入口可达，并说明何时读取；入口保持可加载但不能只剩摘要。
 5. **建立评估**：每个 Skill 至少有正常、边界和失败/不确定场景；提供 `files` fixture、`expected_output` 和 `expectations`，必要时做 with-skill/without-skill 对照。
-6. **运行验证**：quick_validate、JSON schema/解析、Python/脚本语法、Markdown 相对链接、frontmatter、中文检查、目录白名单和职责冲突检查。
+6. **运行验证**：quick_validate、JSON schema/解析、Python/脚本语法、Markdown 相对链接、frontmatter、中文说明与 English controlled vocabulary、目录白名单和职责冲突检查。
 7. **人工评估**：运行评估，保存 outputs、timing、grading、benchmark；需要时用 Skill Creator viewer 展示结果，根据反馈迭代。
 8. **发布**：根 CHANGELOG 记录变化，确认根 LICENSE 范围，更新 README，使用 Git tag；不覆盖已有 tag。
 
@@ -31,9 +31,9 @@ references/   templates/   scripts/   evals/   agents/   assets/
 
 除 `SKILL.md` 外均为可选。Skill 内不创建 README、CHANGELOG 或 LICENSE；仓库元数据由根目录统一维护。
 
-## v1.1.0 基线
+## v1.1.1 基线
 
-v1.1.0 补齐 v1.0.0 的入口路由、文档所有权、设计生命周期、变更范围预检、真实审查维度、专项验证、评估场景和中文化要求；保留十个项目 Skill 与 UI 设计系统。
+v1.1.1 在 v1.1.0 基础上统一中文说明与 English controlled vocabulary，不改变 Skill 名称、职责和调用方式。
 
 ## 输出
 

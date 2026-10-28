@@ -1,4 +1,4 @@
-# 圆角与层级 — 形状和层次
+# Radius & Elevation — 形状和层次
 
 ## 圆角 Token
 

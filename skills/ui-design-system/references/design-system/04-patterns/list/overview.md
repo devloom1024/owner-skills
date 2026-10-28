@@ -41,6 +41,6 @@
 
 ## 6. 相关规范与验收
 
-[桌面端](desktop.md) · [移动端](mobile.md) · [示例](../../07-examples/list.md)
+[桌面端](desktop.md) · [Mobile](mobile.md) · [示例](../../07-examples/list.md)
 
 核查：0/1/大量结果、加载失败、过滤后无结果、跨页选择、删除后选择状态、长文件名、慢网与返回恢复。

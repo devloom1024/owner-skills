@@ -1,4 +1,4 @@
-# 页面与交互 Pattern — 页面模式总则
+# Page & Interaction Patterns — 页面模式总则
 
 ## 组织原则
 

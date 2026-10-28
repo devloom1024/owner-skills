@@ -9,7 +9,7 @@
 - 容器不足时优先将 Sidebar 折叠为 Rail、抽屉或入口菜单，主内容保持可用；折叠入口必须明显。
 - 新建动作、全局搜索、帮助等 Utilities 与主导航分层，防止与同级目标混淆。
 
-## 交互
+## Interaction / 交互
 
 - 导航项可通过 Tab 和 Enter/Space 等合理语义激活，当前页有清晰 focus 和 selected 区别。
 - 鼠标 Hover 展示提示文本可以辅助 Rail，但 Rail 中无文字图标必须具有可访问名称与键盘可发现的含义。

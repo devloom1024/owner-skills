@@ -2,7 +2,7 @@
 
 由 `devloom1024` 维护的中文 Codex Skill 仓库。
 
-当前版本：`1.1.0`
+当前版本：`1.1.1`
 
 ## Skill 目录
 
@@ -55,7 +55,7 @@ project-pr-description
 
 每个 Skill 只拥有自己的执行流程、参考资料、模板、脚本、评估和必要资产。仓库级说明、版本变化和授权信息分别由本文件、根 `CHANGELOG.md` 和根 `LICENSE` 统一维护。
 
-Skill 的人类可读内容使用中文。Skill 名称、目录名、路径、命令、代码、API、协议字段和机器状态值保留原样。
+Skill 的说明、流程、理由和报告使用中文；稳定的 English controlled vocabulary 保留原样。Skill 名称、目录名、路径、命令、代码、API、协议字段、Pattern、Token、状态值和门禁名称不翻译。详细规则见 `skills/skill-maintenance/references/terminology.md`。
 
 ## 验证
 

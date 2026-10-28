@@ -1,6 +1,6 @@
 # Page Shell — 页面通用骨架
 
-## 结构
+## Anatomy / 结构
 
 1. **Navigation Context**：从哪里来、当前位置（由 App Shell 或 Pattern 提供）。
 2. **Page Header**：唯一主要标题、摘要/状态、主操作；高度随内容变化。

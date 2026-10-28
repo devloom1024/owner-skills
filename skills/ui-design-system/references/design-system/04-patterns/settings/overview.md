@@ -49,5 +49,5 @@
 
 ## 7. 平台细则与验收
 
-- [桌面端](desktop.md) · [移动端](mobile.md) · [视觉结构示例](../../07-examples/settings.md)
+- [Desktop](desktop.md) · [Mobile](mobile.md) · [视觉结构示例](../../07-examples/settings.md)
 - 检查：主题切换成功/失败、离线变更、禁用托管项、长标签、大字体、返回时类别状态、危险操作确认。

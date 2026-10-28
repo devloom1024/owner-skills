@@ -2,7 +2,14 @@
 
 本文件记录 owner-skills 仓库的版本变化。版本统一由仓库根目录管理，单个 Skill 不维护独立版本。
 
-## [1.1.0] - 2026-10-28
+## [1.1.1] - 2026-10-28
+
+### 调整
+
+- 将语言规则调整为“中文说明 + English controlled vocabulary”。
+- 保留 Pattern、Token、Desktop、Mobile、Accessibility、Review Checklist、source of truth、subsystem、contract、gate、fixture、benchmark 等稳定术语。
+- 将 UI 参考标题改为中英并列，避免关键术语在中文化过程中失去可检索性和跨文档一致性。
+
 
 ### 修复
 

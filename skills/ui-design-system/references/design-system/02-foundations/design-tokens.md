@@ -1,4 +1,4 @@
-# Design Token — 核心规范数值来源
+# Design Tokens — 核心规范数值来源
 
 ## Token 设计规则
 
@@ -44,7 +44,7 @@
 
 `color.bg.canvas`、`color.bg.surface`、`color.text.primary`、`color.text.secondary`、`color.border.default`、`color.action.primary`、`color.state.success`、`color.state.warning`、`color.state.info`、`color.state.danger`、`color.focus.ring` 等。各主题必须具备足够对比度，详见 [Colors](colors.md)。
 
-## 例外机制
+## Exceptions / 例外机制
 
 只有专业编辑器、极高密度表格、图形画布等特殊任务可以申请 compact 差异，**但不能牺牲可访问性**；理由写入项目级设计决策，并在回归检查中覆盖。
 

@@ -1,4 +1,4 @@
-# 无障碍 — 无障碍最低标准
+# Accessibility — 无障碍最低标准
 
 ## Web 端采用 WCAG 2.2 AA 为默认验收目标
 

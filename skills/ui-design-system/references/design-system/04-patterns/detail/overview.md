@@ -37,6 +37,6 @@
 
 ## 6. 相关规范与验收
 
-[桌面端](desktop.md) · [移动端](mobile.md) · [示例](../../07-examples/detail.md)
+[桌面端](desktop.md) · [Mobile](mobile.md) · [示例](../../07-examples/detail.md)
 
 覆盖：对象删除、权限变化、超长标题、历史记录巨大、从通知深链进入、详情刷新、操作失败。

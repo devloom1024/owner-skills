@@ -40,6 +40,6 @@
 
 ## 6. 相关规范与验收
 
-[桌面端](desktop.md) · [移动端](mobile.md) · [示例](../../07-examples/navigation.md) · [自适应导航](../../05-platforms/adaptive-navigation.md)
+[桌面端](desktop.md) · [Mobile](mobile.md) · [示例](../../07-examples/navigation.md) · [自适应导航](../../05-platforms/adaptive-navigation.md)
 
 核查：导航选中、深链、刷新、历史返回、权限变化、窄窗口、外接键盘与屏幕阅读器。

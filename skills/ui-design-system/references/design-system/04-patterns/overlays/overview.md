@@ -41,6 +41,6 @@
 
 ## 6. 相关规范与验收
 
-[桌面端](desktop.md) · [移动端](mobile.md) · [示例](../../07-examples/overlays.md) · [shadcn 组件映射](../../adapters/react-shadcn.md)
+[桌面端](desktop.md) · [Mobile](mobile.md) · [示例](../../07-examples/overlays.md) · [shadcn 组件映射](../../adapters/react-shadcn.md)
 
 检查：触发入口、Escape/Back、点击外部、软键盘、焦点恢复、未保存内容、屏幕阅读器、危险操作确认。
