@@ -1,6 +1,6 @@
 # owner-skills
 
-由 `devloom1024` 维护的中文 Codex Skill 仓库。
+由 `devloom1024` 维护的中文 Agent Skills 仓库。
 
 最近已发布版本：`1.2.0`；完整变化见 [变更日志](CHANGELOG.md)。
 
@@ -21,10 +21,6 @@
 - [`project-upgrade-guide`](skills/project-upgrade-guide/SKILL.md)：为外部可见破坏性变化生成升级指南。
 - [`project-simplification`](skills/project-simplification/SKILL.md)：发现重复、过度设计和可删除的维护义务。
 
-### Skill 仓库维护
-
-- [`skill-maintenance`](skills/skill-maintenance/SKILL.md)：维护 Skill 内容、职责、结构验证和可选的使用反馈回归。
-
 ### 现有设计系统
 
 - [`ui-design-system`](skills/ui-design-system/SKILL.md)：跨桌面、移动、触控、键盘和响应式布局的 UI 设计规范。
@@ -44,70 +40,13 @@
 | 诊断或修复 flaky test | `project-test-reliability` | 有外部契约变化时再检查同步和升级影响 |
 | 生成 PR 描述或迁移指南 | `project-pr-description` / `project-upgrade-guide` | 只读取相关的设计、diff 和验证证据 |
 | UI 实现或审查 | `ui-design-system` | 沿用项目现有设计系统；按技术栈读取 adapter |
-| 简化项目或维护 Skill | `project-simplification` / `skill-maintenance` | 先区分审计、编辑和发布授权 |
+| 简化项目 | `project-simplification` | 先区分审计和编辑授权 |
 
-可单独安装任何 Skill。辅助 Skill 不可用时，依据项目规则和当前入口完成必要检查，说明证据缺口，不要求为一次任务安装全套。
+辅助 Skill 不可用时，依据项目规则和当前入口完成必要检查，说明证据缺口，不要求为一次任务启用全套 Skill。
 
-## 安装与发现
+## 使用
 
-本仓库的 `skills/` 是源文件目录，不是仅 clone 后就会被 Codex 自动发现的位置。按 [Codex 官方 Skills 文档](https://developers.openai.com/codex/skills/)，项目级放在 `<project>/.agents/skills/`，用户级放在 `~/.agents/skills/`；也支持软链接的 Skill 文件夹。以下命令只提供安装示例，不会由本仓库自动执行。
-
-### 项目级：复制一个 Skill
-
-替换两个仓库路径并选定 Skill，在终端运行：
-
-```bash
-(
-  set -eu
-  OWNER_SKILLS=/absolute/path/to/owner-skills
-  TARGET_PROJECT=/absolute/path/to/target-project
-  SKILL=project-docs
-  SOURCE="$OWNER_SKILLS/skills/$SKILL"
-  DEST="$TARGET_PROJECT/.agents/skills/$SKILL"
-  test -f "$SOURCE/SKILL.md"
-  test -f "$SOURCE/NOTICE"
-  test -d "$TARGET_PROJECT"
-  if [ -e "$DEST" ] || [ -L "$DEST" ]; then
-    printf 'Already exists: %s\n' "$DEST" >&2
-    exit 1
-  fi
-  mkdir -p "$TARGET_PROJECT/.agents/skills"
-  cp -R "$SOURCE" "$DEST"
-)
-```
-
-保留整个 Skill 文件夹及其 NOTICE，不要只复制 `SKILL.md`。项目可将安装副本纳入版本控制，和项目规则一起审阅；有本地改动时不要直接覆盖。
-
-### 用户级：链接本地源目录
-
-适合维护者或跨项目个人使用；源仓库必须保持在原路径，后续源文件改动会立即影响所有使用该链接的项目。
-
-```bash
-(
-  set -eu
-  OWNER_SKILLS=/absolute/path/to/owner-skills
-  SKILL=ui-design-system
-  SOURCE="$OWNER_SKILLS/skills/$SKILL"
-  DEST="$HOME/.agents/skills/$SKILL"
-  test -f "$SOURCE/SKILL.md"
-  if [ -e "$DEST" ] || [ -L "$DEST" ]; then
-    printf 'Already exists: %s\n' "$DEST" >&2
-    exit 1
-  fi
-  mkdir -p "$HOME/.agents/skills"
-  ln -s "$SOURCE" "$DEST"
-)
-```
-
-用户级也可以复制，项目级也可以软链接；团队可移植安装通常更适合复制。不要依赖同名 Skill 的覆盖顺序，先检查已有安装，避免同时维护多个同名副本。
-
-### 选装、验证与更新
-
-- 按任务选装：文档工作常用 `project-docs`，变更审查可加 `project-change-sync` 与 `project-code-review`；UI 只需 `ui-design-system`。分组只是推荐，不是依赖链。
-- 安装后在目标项目的 Codex 中输入 `$` 选择 Skill；CLI/IDE 也可用 `/skills`。检查名称与实际来源，再用 `$project-docs` 等显式调用。没有出现时检查目录和软链接，必要时重启 Codex。
-- 复制前确认源仓库的 tag/commit 和未提交变更；团队采用稳定版本时从已确认的 tag/commit 复制，并记录来源。软链接直接跟随工作区，不等于版本锁定。
-- 更新时先比较本地适配与新版本，备份需要保留的内容后替换整个副本；仅覆盖同名文件会留下已删除的旧资源。不要自动覆盖用户修改，也不要移动已有 tag。
-- 独立分发保留 NOTICE 中的署名、来源和许可链接；修改后标明本地变化。无需为每个 Skill 维护独立的 CHANGELOG。
+在请求中直接写出 Skill 名称即可，具体调用形式由宿主 Agent 负责解析。例如：“使用 `project-code-review` 审查当前变更”。先选择一个主 Skill，只有任务确实需要时才补充其他 Skill；不要求固定顺序，也不要求一次使用全部 Skill。
 
 ## 使用规则
 
@@ -115,7 +54,7 @@
 
 目标项目已有的 AGENTS、决策语义、冻结约束、发布流程和设计系统优先于通用模板，不以示例替代项目有效规则。审计保持只读，明确编辑请求在授权范围内执行；创建 tag、发布或其他项目的修改不由修改 Skill 自动授权。
 
-Skill 的说明、流程、理由和报告使用中文；稳定的 English controlled vocabulary 保留原样。Skill 名称、目录名、路径、命令、代码、API、协议字段、Pattern、Token、状态值和门禁名称不翻译。详细规则见 `skills/skill-maintenance/references/terminology.md`。
+Skill 的说明、流程、理由和报告使用中文；稳定的 English controlled vocabulary 保留原样。Skill 名称、目录名、路径、命令、代码、API、协议字段、Pattern、Token、状态值和门禁名称不翻译。
 
 ### 决策记录约定
 
@@ -137,10 +76,10 @@ python3 scripts/validate_skills.py
 git diff --check
 ```
 
-单独检查一个源目录或复制后的安装副本：
+单独检查一个 Skill 目录：
 
 ```bash
-python3 scripts/validate_skills.py --skill /absolute/path/to/project/.agents/skills/ui-design-system
+python3 scripts/validate_skills.py --skill /absolute/path/to/skill-directory
 ```
 
 [校验脚本](scripts/validate_skills.py) 使用 PyYAML 与 Markdown 解析器检查：
@@ -157,6 +96,6 @@ python3 scripts/validate_skills.py --skill /absolute/path/to/project/.agents/ski
 
 结构有效不等于 Skill 有效；效果通过真实任务和反馈判断。本仓库不要求每个 Skill 建立 `evals/`，也不强制三类场景、固定断言或 benchmark。
 
-未来遇到值得防止复发的真实失败，再保留最小输入和可观察预期；人工 fixture 与真实运行日志需区分，临时输出默认留在仓库外。详见 [可选行为评估](skills/skill-maintenance/references/eval-workflow.md)。不因为移除模板化 evals 而删除目标项目真正有价值的代码测试。
+未来遇到值得防止复发的真实失败，再保留最小输入和可观察预期；人工 fixture 与真实运行日志需区分，临时输出默认留在仓库外。不因为移除模板化 evals 而删除目标项目真正有价值的代码测试。
 
 完整变更记录见 [CHANGELOG.md](CHANGELOG.md)，授权信息见 [LICENSE](LICENSE)。
