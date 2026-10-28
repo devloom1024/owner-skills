@@ -13,6 +13,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INSTALLER = ROOT / "scripts" / "install_skills.py"
 DOCTOR = ROOT / "scripts" / "skill_doctor.py"
+WORKFLOW_VALIDATOR = ROOT / "scripts" / "validate_workflow.py"
+WORKFLOW_TEMPLATE = ROOT / "skills" / "project-workflow" / "templates" / "workflow.yaml"
 
 
 def run(*args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
@@ -26,13 +28,16 @@ def run(*args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
 
 
 def main() -> int:
+    workflow = run(str(WORKFLOW_VALIDATOR), str(WORKFLOW_TEMPLATE), "--json")
+    assert json.loads(workflow.stdout)["ok"] is True
+
     with tempfile.TemporaryDirectory(prefix="owner-skills-consumer-") as directory:
         target = Path(directory)
         run(str(INSTALLER), "--target", str(target), "--profile", "core")
         doctor = run(str(DOCTOR), "--target", str(target), "--json")
         result = json.loads(doctor.stdout)
         expected = {
-            "project-skill-router",
+            "project-workflow",
             "project-docs",
             "project-code-review",
             "project-change-sync",

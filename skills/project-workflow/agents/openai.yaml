@@ -1,0 +1,6 @@
+interface:
+  display_name: "项目工作流"
+  short_description: "创建并执行固定的 Feature 与 Bug 研发工作流。"
+
+policy:
+  allow_implicit_invocation: false

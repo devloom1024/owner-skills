@@ -6,9 +6,9 @@
 
 ## Skill 目录
 
-### 使用入口
+### 工作流入口
 
-- [`project-skill-router`](skills/project-skill-router/SKILL.md)：根据任务选择主 Skill、辅助 Skill 和 `audit/edit/publish` 模式。
+- [`project-workflow`](skills/project-workflow/SKILL.md)：创建和执行固定的 Feature 与 Bug 研发工作流，选择 Matt 或 Superpowers 作为流程提供者。
 
 ### 设计与文档
 
@@ -49,7 +49,7 @@ python3 /path/to/owner-skills/scripts/install_skills.py \
 
 可用 profile：
 
-- `core`：路由、文档、代码审查和变更同步；
+- `core`：工作流、文档、代码审查和变更同步；
 - `quality`：测试可靠性、文案、简化和升级指南；
 - `ui`：UI 设计系统；
 - `full`：全部 Skill。
@@ -67,12 +67,53 @@ python3 /path/to/owner-skills/scripts/install_skills.py \
 
 更完整的安装、更新和排障说明见 [使用者项目快速开始](docs/consumer-guide.md)。
 
-## 按任务选择
+## 工作流与 Skill
 
-不要求每项开发工作依次运行整套 Skill。先选择主要职责，只有实际需要时才补充：
+工作流表达端到端的研发过程，Skill 表达其中的阶段能力。当前正式工作流包括 Feature 开发、Bug 修复、项目简化审计和发布材料准备；简单的局部任务可以直接调用专项 Skill。
+
+### Feature 开发
+
+```text
+requirements-clarification
+  -> project-design-notes（可选）
+  -> implementation + test
+  -> verification
+  -> project-code-review
+```
+
+### Bug 修复
+
+```text
+bug-diagnosis
+  -> project-design-notes（可选）
+  -> regression test + fix
+  -> verification
+  -> project-code-review
+```
+
+### 项目简化
+
+```text
+project-simplification
+```
+
+这是独立的只读维护工作流，不自动删除代码或文档。
+
+### 发布材料
+
+```text
+project-upgrade-guide（存在外部兼容性变化时）
+  -> project-pr-description
+```
+
+工作流提供者在创建项目工作流时二选一：Matt 或 Superpowers。`to-spec`、`to-tickets`、`writing-plans` 和 `implement-spec` 暂不属于核心流程。
+
+工作流阶段按变更影响条件激活辅助 Skill：
 
 | 任务 | 主 Skill | 按需补充 |
 |---|---|---|
+| 新特性开发 | `project-workflow` | 按 provider 激活需求澄清、TDD、验证和 `project-code-review` |
+| Bug 修复 | `project-workflow` | 按 provider 激活诊断、回归测试、验证和 `project-code-review` |
 | 初始化文档、更新单页、整理目录 | `project-docs` | 有新增长期取舍时用 `project-design-notes`；文案编辑用 `project-prose-standard` |
 | 从实践或缺陷经验提炼、维护开发规范 | `project-docs` | 仅审计变更中的规范同步时用 `project-change-sync`；区分候选、项目采纳与验证证据 |
 | 检查代码变化是否遗漏文档同步 | `project-change-sync` | 确认需要编辑后用 `project-docs` |
@@ -84,25 +125,24 @@ python3 /path/to/owner-skills/scripts/install_skills.py \
 | UI 实现或审查 | `ui-design-system` | 沿用项目现有设计系统；按技术栈读取 adapter |
 | 简化项目 | `project-simplification` | 先区分审计和编辑授权 |
 
-如果无法判断主 Skill，先使用 `project-skill-router`；它只负责路由，不替代专项 Skill。
-
-辅助 Skill 不可用时，依据项目规则和当前入口完成必要检查，说明证据缺口，不要求为一次任务启用全套 Skill。
-
 ## 使用
 
-不知道从哪里开始时，在使用者项目中显式调用路由 Skill：
+首次创建工作流时，在使用者项目中显式调用：
 
 ```text
-$project-skill-router 我想审查当前分支相对 main 的变更
+$project-workflow create
 ```
 
-已知目标 Skill 时可以直接调用：
+工作流创建完成后运行 Feature 或 Bug：
 
 ```text
-$project-code-review 审查当前分支相对 main 的变更
+$project-workflow run feature
+$project-workflow run bug
+$project-workflow run simplification
+$project-workflow run publish
 ```
 
-路由 Skill 会给出任务类型、`audit/edit/publish` 模式、主 Skill、辅助 Skill 和下一步。每个任务先选择一个主 Skill，只有存在直接影响时才补充辅助 Skill；不要求固定顺序，也不要求一次使用全部 Skill。
+如果项目没有 `.agents/workflow.yaml`，`project-workflow` 会停止并提示先创建。创建后的工作流定义不会自动修改；缺少依赖 Skill 时只报告安装建议，不自动更换流程提供者。
 
 使用者项目中的完整路线见 [使用者项目工作流](docs/workflows.md)。
 
@@ -140,6 +180,7 @@ python3 -m venv /absolute/path/outside-repo/owner-skills-venv
 source /absolute/path/outside-repo/owner-skills-venv/bin/activate
 python3 -m pip install -r requirements-dev.txt
 python3 scripts/validate_skills.py
+python3 scripts/validate_workflow.py skills/project-workflow/templates/workflow.yaml
 python3 scripts/test_consumer_install.py
 git diff --check
 ```
@@ -160,6 +201,12 @@ python3 scripts/validate_skills.py --skill /absolute/path/to/skill-directory
 - Skill 内本地链接和软链接是否越过其独立分发边界。
 
 任何文件失败都会汇总并返回非零退出码，不会被最后一个成功项覆盖。它不检查外部链接可达性、模型效果、所有普通文本依赖或 UI 可访问性；references 路由与语义仍需人工审阅。需要时可补充运行 Skill Creator 的 `quick_validate.py`，不依赖其本机安装路径。
+
+项目工作流定义的语义校验使用单独的 [工作流校验脚本](scripts/validate_workflow.py)：
+
+```bash
+python3 scripts/validate_workflow.py /absolute/path/to/.agents/workflow.yaml
+```
 
 ### 行为是否有效
 

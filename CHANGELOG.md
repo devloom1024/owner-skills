@@ -6,7 +6,8 @@
 
 - 删除仅用于维护本仓库 Skill 的 `skill-maintenance`，不再把仓库维护能力作为可分发 Skill。
 - 增加面向使用者项目的 Codex Plugin manifest、本地安装器、安装诊断和 core/quality/ui/full profiles。
-- 增加 `project-skill-router` 作为使用者项目的显式入口，按任务选择主 Skill、辅助 Skill 和 `audit/edit/publish` 模式。
+- 增加 `project-workflow` 作为使用者项目的固定 Feature/Bug 工作流入口，支持 Matt 或 Superpowers provider、可选 Agent Notes 和 UI 条件 Skill。
+- 增加 workflow YAML 格式文档和校验脚本；删除独立的 `project-skill-router` 入口。
 - README 恢复面向消费者的安装、调用、更新和排障说明；补充使用者项目工作流文档。
 
 ## [1.2.0] - 2026-10-28

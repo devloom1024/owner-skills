@@ -1,0 +1,279 @@
+version: 1
+
+workflow:
+  id: owner-default
+  description: "项目 Feature、Bug、简化审计和发布材料的固定研发工作流。"
+  provider: superpowers
+
+  policy:
+    immutable: true
+    update_requires_explicit_request: true
+    missing_definition: require_create
+    missing_skill: stop_and_report
+    unknown_entrypoint: stop_and_report
+    allow_direct_skill_for_simple_tasks: true
+
+  entrypoints:
+    feature: feature-development
+    bug: bug-fix
+    simplification: simplification
+    publish: publish
+
+  flows:
+    feature-development:
+      description: "从需求澄清到实现、验证和代码审查的新特性流程。"
+      stages:
+        - id: requirements-clarification
+          description: "明确目标、范围、非目标、约束和验收条件。"
+          activate:
+            - source: obra/superpowers
+              skill: brainstorming
+          required: true
+          gate: user-approval
+          produces:
+            - feature-understanding
+            - design-input
+          conditional:
+            - when: ui_task
+              activate:
+                - source: owner-skills
+                  skill: ui-design-system
+
+        - id: agent-notes
+          description: "在存在长期决策或用户要求时记录 Agent Note。"
+          activate:
+            - source: owner-skills
+              skill: project-design-notes
+          required: false
+          when:
+            - user_requested
+            - architectural_decision
+            - public_contract_change
+            - persistent_state_change
+            - cross_subsystem_change
+            - security_or_lifecycle_decision
+          gate: user-approval
+          consumes:
+            - design-input
+          produces:
+            - agent-note
+
+        - id: implementation
+          description: "使用 TDD 实现已经确认的功能。"
+          activate:
+            - source: obra/superpowers
+              skill: test-driven-development
+          required: true
+          consumes:
+            - design-input
+            - agent-note
+          produces:
+            - implementation
+            - tests
+          conditional:
+            - when: ui_task
+              activate:
+                - source: owner-skills
+                  skill: ui-design-system
+
+        - id: documentation-sync
+          description: "在实现改变当前文档事实时更新其 canonical owner。"
+          activate:
+            - source: owner-skills
+              skill: project-docs
+          required: false
+          when:
+            - docs_owner_update_required
+            - user_requested
+          gate: user-approval
+          consumes:
+            - implementation
+          produces:
+            - docs-updated
+
+        - id: verification
+          description: "验证测试、验收条件和未验证项。"
+          activate:
+            - source: obra/superpowers
+              skill: verification-before-completion
+          required: true
+          consumes:
+            - implementation
+            - tests
+          produces:
+            - verification-evidence
+
+        - id: code-review
+          description: "根据项目规则、设计记录、代码和验证证据审查变更。"
+          activate:
+            - source: owner-skills
+              skill: project-code-review
+          required: true
+          consumes:
+            - implementation
+            - verification-evidence
+            - agent-note
+          conditional:
+            - when: ui_task
+              activate:
+                - source: owner-skills
+                  skill: ui-design-system
+            - when: docs_changed
+              activate:
+                - source: owner-skills
+                  skill: project-change-sync
+            - when: test_topology_changed
+              activate:
+                - source: owner-skills
+                  skill: project-test-reliability
+            - when: user_visible_text_changed
+              activate:
+                - source: owner-skills
+                  skill: project-prose-standard
+
+    bug-fix:
+      description: "从问题诊断到回归测试、修复、验证和代码审查的 Bug 流程。"
+      stages:
+        - id: bug-diagnosis
+          description: "建立复现、确认根因并提出修复假设。"
+          activate:
+            - source: obra/superpowers
+              skill: systematic-debugging
+          required: true
+          produces:
+            - reproduction
+            - root-cause
+            - fix-hypothesis
+          conditional:
+            - when: ui_task
+              activate:
+                - source: owner-skills
+                  skill: ui-design-system
+
+        - id: agent-notes
+          description: "在根因可复用或用户要求时记录 Bug-fix Note。"
+          activate:
+            - source: owner-skills
+              skill: project-design-notes
+          required: false
+          when:
+            - user_requested
+            - reusable_root_cause
+            - cross_subsystem_impact
+            - process_or_testing_decision
+          gate: user-approval
+          consumes:
+            - root-cause
+            - fix-hypothesis
+          produces:
+            - bug-fix-note
+
+        - id: regression-fix
+          description: "先建立回归测试，再实现最小修复。"
+          activate:
+            - source: obra/superpowers
+              skill: test-driven-development
+          required: true
+          consumes:
+            - reproduction
+            - root-cause
+            - fix-hypothesis
+          produces:
+            - regression-test
+            - implementation
+          conditional:
+            - when: ui_task
+              activate:
+                - source: owner-skills
+                  skill: ui-design-system
+
+        - id: documentation-sync
+          description: "在修复改变当前文档事实时更新其 canonical owner。"
+          activate:
+            - source: owner-skills
+              skill: project-docs
+          required: false
+          when:
+            - docs_owner_update_required
+            - user_requested
+          gate: user-approval
+          consumes:
+            - implementation
+          produces:
+            - docs-updated
+
+        - id: verification
+          description: "验证回归测试、完整测试和修复后的行为。"
+          activate:
+            - source: obra/superpowers
+              skill: verification-before-completion
+          required: true
+          consumes:
+            - regression-test
+            - implementation
+          produces:
+            - verification-evidence
+
+        - id: code-review
+          description: "审查修复是否符合项目规则、Note 和验证证据。"
+          activate:
+            - source: owner-skills
+              skill: project-code-review
+          required: true
+          consumes:
+            - implementation
+            - verification-evidence
+            - bug-fix-note
+          conditional:
+            - when: ui_task
+              activate:
+                - source: owner-skills
+                  skill: ui-design-system
+            - when: docs_changed
+              activate:
+                - source: owner-skills
+                  skill: project-change-sync
+            - when: test_topology_changed
+              activate:
+                - source: owner-skills
+                  skill: project-test-reliability
+            - when: user_visible_text_changed
+              activate:
+                - source: owner-skills
+                  skill: project-prose-standard
+
+    simplification:
+      description: "审计重复事实、过度抽象和不必要的维护复杂度。"
+      stages:
+        - id: simplification-audit
+          description: "形成有证据的简化候选、能力损失、风险和验证建议。"
+          activate:
+            - source: owner-skills
+              skill: project-simplification
+          required: true
+          produces:
+            - simplification-report
+
+    publish:
+      description: "根据已完成变更准备升级指南和 PR 描述等发布材料。"
+      stages:
+        - id: upgrade-guide
+          description: "为外部可见的破坏性变化生成升级指南。"
+          activate:
+            - source: owner-skills
+              skill: project-upgrade-guide
+          required: false
+          when:
+            - external_contract_changed
+          gate: user-approval
+          produces:
+            - upgrade-guide
+
+        - id: pr-description
+          description: "根据变更、设计、Review 和验证证据生成 PR 描述。"
+          activate:
+            - source: owner-skills
+              skill: project-pr-description
+          required: true
+          produces:
+            - pr-description

@@ -1,6 +1,0 @@
-interface:
-  display_name: "Skill 路由"
-  short_description: "根据任务选择主 Skill、辅助 Skill 和执行模式。"
-
-policy:
-  allow_implicit_invocation: false

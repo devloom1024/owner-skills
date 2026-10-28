@@ -1,6 +1,6 @@
 {
   "core": [
-    "project-skill-router",
+    "project-workflow",
     "project-docs",
     "project-code-review",
     "project-change-sync"
@@ -15,7 +15,7 @@
     "ui-design-system"
   ],
   "full": [
-    "project-skill-router",
+    "project-workflow",
     "project-docs",
     "project-design-notes",
     "project-change-sync",

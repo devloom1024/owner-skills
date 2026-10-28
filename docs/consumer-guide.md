@@ -40,17 +40,20 @@ python3 /path/to/owner-skills/scripts/install_skills.py \
 
 ## 第一次使用
 
-从使用者项目根目录启动 Agent，然后运行：
+从使用者项目根目录启动 Agent，先创建固定工作流：
 
 ```text
-$project-skill-router 我想审查当前分支相对 main 的变更
+$project-workflow create
 ```
 
-已知 Skill 时可以直接调用：
+创建时在 Matt 和 Superpowers 之间选择一个流程提供者。之后运行 Feature 或 Bug 工作流：
 
 ```text
-$project-code-review 审查当前分支相对 main 的变更
+$project-workflow run feature
+$project-workflow run bug
 ```
+
+工作流定义保存在项目根的 `.agents/workflow.yaml`，创建后不会自动修改。简单的局部任务可以直接调用专项 Skill；缺少工作流定义时，`project-workflow` 会停止并提示先创建。
 
 如果新安装的 Skill 没有出现，重启宿主后运行诊断：
 

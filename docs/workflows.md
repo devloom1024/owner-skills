@@ -1,63 +1,95 @@
 # 使用者项目工作流
 
-## 通用流程
+## 工作流定义
+
+使用者通过 `project-workflow` 显式创建项目工作流。创建时在 Matt 和 Superpowers 之间选择一个流程提供者，定义写入项目根的 `.agents/workflow.yaml`。创建后保持不变，只有用户明确要求更新时才修改。
+
+定义语法、描述字段、阶段产物和语义约束见 [Workflow 定义格式](../skills/project-workflow/references/workflow-format.md)。可以使用维护仓库提供的 `scripts/validate_workflow.py` 校验定义。
+
+执行工作流前会检查定义是否存在。缺少定义时停止并提示先运行 `$project-workflow create`；缺少定义中引用的 Skill 时停止并报告安装建议，不自动切换流程提供者或修改定义。
+
+简单的局部任务可以直接调用专项 Skill，不强制进入完整工作流。
+
+## Feature 开发
 
 ```text
-安装 Skill
-  -> Agent 发现 Skill
-  -> 选择主 Skill
-  -> 读取目标项目规则和相关 references
-  -> 执行 audit / edit / publish
-  -> 运行适用验证
-  -> 报告结果、证据和未验证项
+requirements-clarification
+  -> project-design-notes（可选）
+  -> implementation + test
+  -> verification
+  -> project-code-review
 ```
 
-这不是固定流水线。一个任务不需要依次调用所有 Skill。
+Feature 的前置阶段根据工作流提供者选择：
 
-## 推荐路由
+| Provider | 需求澄清 | 实现与测试 | 验证 |
+|---|---|---|---|
+| Matt | `grill-with-docs` | `tdd` | 工作流验证要求 |
+| Superpowers | `brainstorming` | `test-driven-development` | `verification-before-completion` |
 
-| 场景 | 主 Skill | 按需辅助 |
+`project-design-notes` 只在用户要求或存在长期设计决策时激活。
+
+## Bug 修复
+
+```text
+bug-diagnosis
+  -> project-design-notes（可选）
+  -> regression test + fix
+  -> verification
+  -> project-code-review
+```
+
+Bug 的前置阶段根据工作流提供者选择：
+
+| Provider | 诊断 | 回归测试与修复 |
 |---|---|---|
-| 新建、整理或审计项目文档 | `project-docs` | `project-prose-standard`、`project-design-notes` |
-| 设计长期取舍或维护 ADR | `project-design-notes` | `project-docs` |
-| 审查 PR、commit、worktree 或分支 | `project-code-review` | `project-change-sync`、`project-test-reliability` |
-| 检查代码变化是否漏同步文档 | `project-change-sync` | `project-docs` |
-| 诊断 flaky test 或 CI 不稳定 | `project-test-reliability` | `project-code-review` |
-| 审查技术文案、注释或提示词 | `project-prose-standard` | `project-docs` |
-| 识别破坏性变化 | `project-upgrade-guide` | `project-change-sync`、`project-pr-description` |
-| 生成 PR 描述 | `project-pr-description` | `project-code-review` |
-| 发现重复、过度抽象或无消费者接口 | `project-simplification` | `project-design-notes`、`project-code-review` |
-| 实现或审查 UI | `ui-design-system` | `project-code-review`、`project-prose-standard` |
+| Matt | `diagnosing-bugs` | `tdd` |
+| Superpowers | `systematic-debugging` | `test-driven-development` |
 
-不知道从哪里开始时，显式调用 `project-skill-router`。
+## 项目简化
 
-## 典型路线
-
-### 代码审查
+项目简化是独立的只读工作流：
 
 ```text
-project-code-review
-  -> project-change-sync（影响文档、契约或规范时）
-  -> project-test-reliability（影响测试拓扑、并发或清理时）
-  -> project-pr-description（需要 PR 描述时）
+project-simplification
 ```
 
-### 文档任务
+它输出重复事实、过度抽象、无消费者接口和维护成本候选，不自动删除代码或文档。用户接受候选后，再显式进入适合的实现流程。
+
+## 发布材料
+
+发布入口根据已经完成的变更准备外部材料：
 
 ```text
-project-docs
-  -> project-prose-standard（涉及术语、注释或用户可见文案时）
-  -> project-design-notes（产生长期设计决策时）
+project-upgrade-guide（存在外部兼容性变化时）
+  -> project-pr-description
 ```
 
-### 外部可见变化
+`project-upgrade-guide` 只在存在外部可见破坏性变化时激活；`project-pr-description` 由用户运行 `publish` 入口时激活。
+
+## 条件 Skill
+
+`project-code-review` 是 Feature 和 Bug 的固定末尾阶段。根据实际影响激活辅助 Skill：
+
+- UI 任务在设计、实现和审查阶段激活 `ui-design-system`；判断依据是任务意图和当前工作流上下文，不使用通用路径 glob；
+- 影响文档、规范或契约时激活 `project-change-sync`；
+- 影响异步、资源、并发、测试拓扑或 CI 时激活 `project-test-reliability`；
+- 影响用户可见文案、注释、JSDoc 或提示词时激活 `project-prose-standard`；
+- 影响外部消费者兼容性时激活 `project-upgrade-guide`；
+- 需要发布材料时运行 `publish` 入口激活 `project-pr-description`。
+
+`project-docs` 是大型项目文档的 owner。实现阶段发现代码改变了当前文档事实，或用户明确要求更新文档时，激活它；代码审查和 `project-change-sync` 负责查漏补缺，不直接替代文档维护。
+
+`project-prose-standard` 是 Review 阶段的文案条件 Skill；`project-test-reliability` 是测试拓扑、资源、并发或 CI 受影响时的条件 Skill。它们都不是独立的主工作流。
+
+## 入口
 
 ```text
-project-upgrade-guide
-  -> project-change-sync
-  -> project-pr-description（需要 PR 描述时）
+$project-workflow create
+$project-workflow run feature
+$project-workflow run bug
+$project-workflow run simplification
+$project-workflow run publish
 ```
 
-## 目标项目适配
-
-Skill 会读取目标项目自己的 `AGENTS.md`、README、测试入口、文档 owner 和决策记录。没有这些文件时，Skill 应报告证据缺口，而不是把通用模板当成项目事实。
+工作流是端到端研发过程；Skill 是阶段能力。`project-skill-router` 不再作为项目入口，`to-spec`、`to-tickets`、`writing-plans` 和 `implement-spec` 暂不属于核心工作流。
