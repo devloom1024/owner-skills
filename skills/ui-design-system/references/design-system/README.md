@@ -6,7 +6,7 @@
 
 ## 一句话原则
 
-**统一 Pattern（信息与业务行为）→ 分别规定桌面和移动呈现（布局与输入）→ 按 Design Tokens 落地 → 使用清单验收。**
+**统一 Pattern（信息与业务行为）→ 分别规定桌面和移动呈现（布局与输入）→ 按 Design Token 落地 → 使用清单验收。**
 
 ## 使用边界
 
@@ -54,7 +54,7 @@ Settings、List、Detail、Form、Navigation 和 Overlays 都使用共享的 `ov
 
 1. 通过 `$ui-design-system` 使用本 Skill，按任务路由读取资料。
 2. 开发前阅读 Tokens、Components 和目标 Pattern 的适用文件。
-3. 先描述 Anatomy、状态、导航和适配，再使用已有组件实现。
+3. 先描述 结构、状态、导航和适配，再使用已有组件实现。
 4. 完成后运行 UI 验收清单；项目差异使用例外模板记录。
 
 ## 版本和授权

@@ -1,4 +1,4 @@
-# Components — 基础组件使用规范
+# 组件 — 基础组件使用规范
 
 > 本层规定**什么时候用什么组件**、组件间的视觉/交互关系及状态，不重新封装或发布 React 组件。
 
@@ -12,14 +12,14 @@
 | 多选选项或提交时生效 | Checkbox | 把多选放在 Radio 中 |
 | 互斥选一 | Radio / Select / Segmented（少量） | 多个独立 Switch |
 | 筛选当前结果 | Search / Filter / Combobox | 无反馈的自由输入 |
-| 补充说明 | Tooltip（Desktop 辅助）/ 帮助文本 | 把关键信息只藏在 Hover |
+| 补充说明 | Tooltip（桌面端 辅助）/ 帮助文本 | 把关键信息只藏在 Hover |
 | 重要确认 | AlertDialog | 仅 Toast 后立即不可逆删除 |
 | 临时次级任务 | Dialog / Sheet | 为每个简单动作强制跳独立页 |
 
 ## 使用顺序
 
 1. 首先选择 Pattern 指定的语义组件；其次选 shadcn/ui 对应基础组件。
-2. 使用全局 Design Tokens，不因新页面改变 Button 高度/圆角。
+2. 使用全局 Design Token，不因新页面改变 Button 高度/圆角。
 3. 在所有组件状态下保持相同标签、位置、反馈；禁止仅通过颜色表达状态。
 4. 只有当确实存在未覆盖的业务交互，才能新增业务组合模式，并进入例外/版本流程。
 

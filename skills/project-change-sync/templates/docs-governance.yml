@@ -1,8 +1,24 @@
+# 项目文档同步覆盖配置示例
+
+# 这是跨项目示例。项目必须用自己的源码、文档索引和 AGENTS 规则确认 owner。
 paths:
-  services/<service>/**:
-    subsystem: docs/subsystems/<service>.md
-  packages/<package>/**:
-    package_readme: packages/<package>/README.md
+  apps/<app>/**:
+    architecture: docs/architecture.md
+    subsystem: docs/subsystems/<app>.md
+    guide: docs/guides/<app>.md
+  packages/<group>/<package>/**:
+    subsystem: docs/subsystems/<group>.md
+    package_readme: packages/<group>/<package>/README.md
+  schemas/**:
+    contract: docs/contracts/<name>.md
+    generated: generated/<name>.*
+  docs/<language-pair>/**:
+    i18n: [docs/<language-pair>.md, docs/<language-pair>.zh.md]
 checks:
   - local-links
   - required-sections
+  - generated-freshness
+  - type-equivalence
+  - bilingual-pairing
+  - documentation-build
+# 只有项目真的有该门禁时才保留相应检查。

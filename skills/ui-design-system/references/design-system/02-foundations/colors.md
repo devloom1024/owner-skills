@@ -27,7 +27,7 @@
 - 选中、Hover、Active、Focus、Disabled 必须可区分；Focus 不应被 Hover 背景取代。
 - 深色主题不仅是颜色反转；阴影、边界、表面层级应重新核对。
 
-## Do / Don't
+## 应该 / 不应该
 
 ✅ “危险删除”用 destructive token + 明确动词。  
 ❌ 用品牌蓝色表示普通选中，又在另一个页面用同蓝色表示错误。  

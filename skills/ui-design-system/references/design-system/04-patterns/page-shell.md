@@ -1,6 +1,6 @@
 # Page Shell — 页面通用骨架
 
-## Anatomy
+## 结构
 
 1. **Navigation Context**：从哪里来、当前位置（由 App Shell 或 Pattern 提供）。
 2. **Page Header**：唯一主要标题、摘要/状态、主操作；高度随内容变化。
@@ -19,7 +19,7 @@
 
 ## 参考尺寸
 
-Desktop Page Padding 24px（宽屏可 32px）；Mobile Content Padding 16px + Safe Area；设置阅读宽 720px，表单阅读宽 640px。来自 [Foundations](../02-foundations/design-tokens.md)。
+桌面端 Page Padding 24px（宽屏可 32px）；移动端 Content Padding 16px + Safe Area；设置阅读宽 720px，表单阅读宽 640px。来自 [Foundations](../02-foundations/design-tokens.md)。
 
 ## 验收
 

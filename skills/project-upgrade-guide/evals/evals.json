@@ -3,10 +3,43 @@
   "evals": [
     {
       "id": 1,
-      "name": "破坏性 API 变化",
-      "prompt": "为公开配置和 API 的破坏性变化生成升级指南。",
-      "expected_output": "包含版本、旧新行为、迁移、兼容性和验证。",
-      "files": []
+      "prompt": "为 CLI flag 破坏性变化生成升级指南。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/breaking-change.md",
+        "evals/files/version.json"
+      ],
+      "expectations": [
+        "读取版本来源",
+        "输出旧行为、新行为、迁移、兼容性和验证",
+        "使用 Change/Migration 结构"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "判断纯内部重构是否需要指南。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/version.json"
+      ],
+      "expectations": [
+        "输出 not-needed 和证据",
+        "不生成外部迁移步骤"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "已有旧版本指南已冻结，出现同 surface 新变化。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/breaking-change.md",
+        "evals/files/version.json"
+      ],
+      "expectations": [
+        "放入新版本目录",
+        "不跨版本合并",
+        "列出未验证项"
+      ]
     }
   ]
 }

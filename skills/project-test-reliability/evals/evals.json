@@ -3,10 +3,43 @@
   "evals": [
     {
       "id": 1,
-      "name": "诊断异步测试",
-      "prompt": "诊断一个只在并发 CI 中失败的异步测试。",
-      "expected_output": "说明共享资源、同步和清理证据，提出可验证修复。",
-      "files": []
+      "prompt": "诊断并发 CI 中固定端口和 child 未退出。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/flake.log",
+        "evals/files/test.ts"
+      ],
+      "expectations": [
+        "识别原子端口分配缺失",
+        "要求 readiness/quiescent cleanup",
+        "拒绝用 sleep/重试掩盖"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "测试依赖 Windows 文件句柄和环境变量差异。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/test.ts"
+      ],
+      "expectations": [
+        "检查平台语义",
+        "要求显式平台证据或 skip 原因",
+        "记录 timeout budget"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "设计一个修复前会失败的负例。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/test.ts"
+      ],
+      "expectations": [
+        "要求 negative control",
+        "使用真实外部状态或退出信号",
+        "不只重复 stress"
+      ]
     }
   ]
 }

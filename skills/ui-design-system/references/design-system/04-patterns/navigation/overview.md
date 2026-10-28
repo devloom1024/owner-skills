@@ -1,10 +1,10 @@
-# Navigation — Shared Pattern
+# Navigation — 共享 Pattern
 
-## 1. Purpose
+## 1. 用途
 
 在应用顶层区域、同级类别与详情层级之间切换，同时提供**我在哪、从哪里来、怎么返回**的可预测体验。
 
-## 2. Anatomy
+## 2. 结构
 
 1. **Primary Destinations**：数量稳定、术语一致的顶层目标。
 2. **Current Location**：选中态、页标题、必要的父级导航。
@@ -31,7 +31,7 @@
 | 深层记录阅读与返回 | Stack Back / Breadcrumb / 上下文标题 |
 | 局部筛选/排序 | 工具栏，不属于导航 |
 
-## 5. Do / Don't
+## 5. 应该 / 不应该
 
 ✅ Sidebar 和底栏指向同一组顶层区域，名称一致。  
 ❌ 在桌面“工作区”对应移动“任务”，却实际打开不同内容。  
@@ -40,6 +40,6 @@
 
 ## 6. 相关规范与验收
 
-[Desktop](desktop.md) · [Mobile](mobile.md) · [示例](../../07-examples/navigation.md) · [自适应导航](../../05-platforms/adaptive-navigation.md)
+[桌面端](desktop.md) · [移动端](mobile.md) · [示例](../../07-examples/navigation.md) · [自适应导航](../../05-platforms/adaptive-navigation.md)
 
 核查：导航选中、深链、刷新、历史返回、权限变化、窄窗口、外接键盘与屏幕阅读器。

@@ -1,13 +1,18 @@
 # 被拒绝提案：<主题>
 
-Status: rejected
+Status: rejected — <一句话理由>
 
 ## Problem
 
 ## Proposal
 
+## Alternatives considered
+
 ## Rejection reason
 
-## Alternatives
+## Remaining guardrail
 
 ## Related
+
+- Supersedes:
+- Superseded by:

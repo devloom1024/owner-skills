@@ -3,10 +3,43 @@
   "evals": [
     {
       "id": 1,
-      "name": "发现重复所有权",
-      "prompt": "检查多个文档重复描述同一配置和状态。",
-      "expected_output": "指出事实所有者、证据、风险和保守的合并建议。",
-      "files": []
+      "prompt": "发现两个配置默认值和两个文档 owner。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/candidates.md",
+        "evals/files/consumers.txt"
+      ],
+      "expectations": [
+        "追踪 consumer",
+        "区分合并 owner 和删除概念",
+        "输出优先级、风险、迁移和验证"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "候选触及持久化和公开协议。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/candidates.md"
+      ],
+      "expectations": [
+        "标记保护约束",
+        "拒绝无迁移的删除",
+        "列出兼容性和失败风险"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "只有文件名重复，没有调用方证据。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/candidates.md"
+      ],
+      "expectations": [
+        "输出 review-required",
+        "不以零引用或短代码证明可删除",
+        "列出需补证据"
+      ]
     }
   ]
 }

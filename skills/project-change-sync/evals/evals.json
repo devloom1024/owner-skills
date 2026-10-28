@@ -3,17 +3,43 @@
   "evals": [
     {
       "id": 1,
-      "name": "代码影响检查",
-      "prompt": "检查修改状态转换和协议源但未修改文档的变更。",
-      "expected_output": "逐路径输出 covered/not-needed/review-required/missing 和证据。",
-      "files": []
+      "prompt": "检查公开 API 变化但文档未更新。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/change.patch",
+        "evals/files/docs-governance.yml"
+      ],
+      "expectations": [
+        "报告 canonical owner",
+        "状态为 missing 或 review-required",
+        "列出 generated freshness 和链接门禁"
+      ]
     },
     {
       "id": 2,
-      "name": "纯重构",
-      "prompt": "检查只重命名私有函数且行为不变的变更。",
-      "expected_output": "有测试和 API 证据支持的 not-needed。",
-      "files": []
+      "prompt": "检查只修改私有函数且契约未变的 diff。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/change.patch"
+      ],
+      "expectations": [
+        "只有有 API/consumer/gate 证据才标 not-needed",
+        "记录运行或未运行的命令",
+        "不编辑文件"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "base/head 不存在且 worktree 有 untracked 文件。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/docs-governance.yml"
+      ],
+      "expectations": [
+        "报告 scope 预检失败",
+        "列出 staged/unstaged/untracked",
+        "不能标 covered"
+      ]
     }
   ]
 }

@@ -3,10 +3,42 @@
   "evals": [
     {
       "id": 1,
-      "name": "拆分 Skill",
-      "prompt": "一个 Skill 同时负责文档、代码审查和版本发布，请提出拆分方案。",
-      "expected_output": "按主要职责拆分，说明触发边界、引用关系和验证。",
-      "files": []
+      "prompt": "设计一个新 Skill 并选择 references/templates/evals。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/skill-tree.md"
+      ],
+      "expectations": [
+        "先检查职责重叠",
+        "入口路由 references 和 templates",
+        "包含正常/边界/失败 eval"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "评估一个现有 Skill 的新旧版本。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/eval.json"
+      ],
+      "expectations": [
+        "要求 baseline 和 with-skill",
+        "使用 expectations",
+        "记录 benchmark/timing/反馈"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "准备仓库版本发布。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/skill-tree.md"
+      ],
+      "expectations": [
+        "检查根 README/CHANGELOG/LICENSE",
+        "允许 agents/assets 目录",
+        "报告版本和未完成事项"
+      ]
     }
   ]
 }

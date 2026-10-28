@@ -8,14 +8,26 @@ Status: proposed
 
 ## Scope
 
+## Non-goals
+
 ## Proposal
 
 ## Alternatives considered
 
 ## Acceptance criteria
 
-## Risks
+- [ ] <可观察结果>
+
+## Risks and capability trade-offs
 
 ## Open questions
 
-## Verification
+## Affected owners
+
+- Current subsystem:
+- Package/API:
+- Contract/generated output:
+
+## Verification plan
+
+## Related

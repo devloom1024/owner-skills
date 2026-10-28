@@ -1,4 +1,4 @@
-# Design Tokens — 核心规范数值来源
+# Design Token — 核心规范数值来源
 
 ## Token 设计规则
 
@@ -7,7 +7,7 @@
 - 数值按 `base → semantic → component state` 三层；组件规格引用语义，而不是重复硬编码。
 - 允许 light/dark、compact/comfortable 设不同数值，但语义名称保持相同。
 - 新建 Token 必须说明适用范围、现有替代为何不足、影响范围；不得为一个页面新增匿名值。
-- 未明确标为 `MUST` 的数值按 `SHOULD` 处理；规则强度定义见 [Normative Levels](../06-governance/normative-levels.md)。
+- 未明确标为 `MUST` 的数值按 `SHOULD` 处理；规则强度定义见 [规范强度](../06-governance/normative-levels.md)。
 
 ## 规范层 Token 总表（建议值）
 
@@ -25,7 +25,7 @@
 | `size.control.prominent` | 40px（触控 48px） | 主操作 |
 | `size.row.settings.min` | 48px（触控 56px） | 设置行最小高度 |
 | `size.row.list` | Compact 约 44–52px，随内容增长 | 数据列表/表格行高 |
-| `size.icon.visual` | Desktop 16–20px；Touch 20–24px | 图标视觉尺寸（不等于触摸目标） |
+| `size.icon.visual` | 桌面端 16–20px；Touch 20–24px | 图标视觉尺寸（不等于触摸目标） |
 | `layout.padding.page` | 24px（宽屏可 32；紧凑 16） | 页面边距 |
 | `layout.width.settings` | 720px | 设置主内容最大宽 |
 | `layout.width.form` | 640px | 常规表单主内容最大宽 |

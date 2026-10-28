@@ -1,0 +1,44 @@
+{
+  "skill_name": "ui-design-system",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "实现 Settings 页面并按多平台状态验收。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/ui-brief.md"
+      ],
+      "expectations": [
+        "选择 Pattern 和所需参考",
+        "检查 touch/desktop、loading/error、键盘和暗色",
+        "输出验证证据和例外"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "审查已有 UI 的组件复用和无障碍问题。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/ui-review.md"
+      ],
+      "expectations": [
+        "指出自定义 Button 复用问题",
+        "检查焦点恢复和命中区域",
+        "输出状态和修复建议"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "项目需要偏离推荐 Token。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/ui-brief.md"
+      ],
+      "expectations": [
+        "要求记录原因、影响、owner 和复审条件",
+        "区分 MUST/SHOULD/MAY",
+        "不把示例当硬性规范"
+      ]
+    }
+  ]
+}

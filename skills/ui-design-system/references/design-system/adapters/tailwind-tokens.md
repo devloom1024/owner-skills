@@ -1,4 +1,4 @@
-# Adapter — Tailwind / Theme Tokens（可选映射规则）
+# 适配器 — Tailwind / Theme Tokens（可选映射规则）
 
 > 本仓库不提供强制 CSS 文件；这里说明 React + Tailwind / shadcn 项目如何保持唯一 Token 来源。
 

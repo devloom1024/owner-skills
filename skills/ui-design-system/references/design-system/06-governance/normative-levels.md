@@ -1,4 +1,4 @@
-# Normative Levels — 规范强度
+# 规范强度 — 规范强度
 
 本规范使用三种强度，避免把推荐基线误读为平台硬性要求：
 
@@ -12,9 +12,9 @@
 
 - 没有明确强度标记的尺寸、断点、密度和视觉数值，按 `SHOULD` 处理。
 - 键盘可达、焦点管理、错误恢复、数据不丢失、危险操作后果、触摸/辅助技术的关键入口，按 `MUST` 处理。
-- `Desktop` / `Mobile` 文件描述的是推荐载体，不是设备身份判定；实际决策仍由容器空间、输入方式和运行平台共同决定。
-- 例外记录至少包含偏离内容、原因、用户影响、负责人和复审条件，模板见 [Exceptions & Versioning](exceptions-versioning.md)。
+- `桌面端` / `移动端` 文件描述的是推荐载体，不是设备身份判定；实际决策仍由容器空间、输入方式和运行平台共同决定。
+- 例外记录至少包含偏离内容、原因、用户影响、负责人和复审条件，模板见 [例外 & Versioning](exceptions-versioning.md)。
 
 ## 维护要求
 
-新增规则时，在句子或小节标题中标注 `MUST`、`SHOULD` 或 `MAY`；新增数值必须进入 [Design Tokens](../02-foundations/design-tokens.md) 或说明为何不属于全局 Token。
+新增规则时，在句子或小节标题中标注 `MUST`、`SHOULD` 或 `MAY`；新增数值必须进入 [Design Token](../02-foundations/design-tokens.md) 或说明为何不属于全局 Token。

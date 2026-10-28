@@ -1,4 +1,4 @@
-# Adapter — React + TypeScript + shadcn/ui（可选实现指南）
+# 适配器 — React + TypeScript + shadcn/ui（可选实现指南）
 
 > 本文件解释“怎样映射”，**不是可复制运行的组件库**，不提供固定业务组件 API。
 
@@ -7,7 +7,7 @@
 1. 初始化项目自有 shadcn/ui 组件；不要把设计系统目录当成 React `src/components`。
 2. 对照 [Tokens](../02-foundations/design-tokens.md) 把颜色语义映射到 shadcn 的 `background`、`foreground`、`primary`、`muted`、`destructive`、`border`、`ring` 等现有变量；shadcn/ui 组件基于 Base UI 原语，升级依赖时留意其行为与可访问性变化。
 3. 利用主题变量及统一的密度策略映射文字与高度；不对每个按钮硬编码一次高度和圆角。
-4. 页面开发先指定 Pattern，例如 `settings`；按 `overview.md` 实现共享结构，再对照 Desktop/Mobile 文件实现布局与交互。
+4. 页面开发先指定 Pattern，例如 `settings`；按 `overview.md` 实现共享结构，再对照 桌面端/移动端 文件实现布局与交互。
 5. 如果多个项目需要复用 SettingsRow 等组合组件，先在项目中验证，再决定是否抽出公共包；规范本身不强制某个 TSX API。
 
 ## 组件映射（规范概念 → shadcn/ui 组件）

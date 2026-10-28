@@ -1,13 +1,34 @@
 # 变更影响
 
-## 范围
+## 1. 范围和预检
 
-## 变化路径
+- Base/head 或 worktree：
+- Scope command、输出、dirty layers 和重跑记录：
+- changed paths（含 rename/delete/untracked）：
+- 排除项和失败：
 
-## 所有权和状态
+## 2. 路径影响
 
-## 设计与当前事实
+| 路径 | canonical owner | configured/inferred | contract delta | 状态 | 证据 | 置信度 |
+|---|---|---|---|---|---|---|
+| `path` | `<owner>` | `<mode>` | `<变化>` | covered/not-needed/review-required/missing | `<path/command>` | high/medium/low |
 
-## 文档、契约和 Lesson 影响
+## 3. 设计和事实
 
-## 验证
+- proposed 验收项与实现：
+- proposed → implemented：
+- implemented/current 文档准确性：
+- archived/rejected 排除情况：
+
+## 4. 派生物和门禁
+
+| 门禁/生成器 | 命令 | 结果 | 未验证原因 |
+|---|---|---|---|
+| `<gate>` | `<command>` | pass/fail/not-run | `<reason>` |
+
+## 5. 事故、规范、契约和升级
+
+- postmortem/Agent Note/规范候选：
+- 契约重新生成或升级指南：
+
+## 6. 结论和人工决定

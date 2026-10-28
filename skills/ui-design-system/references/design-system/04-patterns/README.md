@@ -1,14 +1,14 @@
-# Page & Interaction Patterns — 页面模式总则
+# 页面与交互 Pattern — 页面模式总则
 
 ## 组织原则
 
 本目录的每种模式固定由三个文档构成：
 
-- `overview.md`：平台无关的任务、Anatomy、共享状态、业务语义、Do/Don't 与验收。
+- `overview.md`：平台无关的任务、结构、共享状态、业务语义、Do/Don't 与验收。
 - `desktop.md`：桌面（鼠标/键盘、通常更充裕空间）布局与交互的**推荐实现**。
 - `mobile.md`：移动（触摸、有限空间）布局与交互的**推荐实现**。
 
-**不是三种独立设计系统**。Desktop/Mobile 的差异不能改变 shared 文档定义的用户目标、数据含义、保存/删除后果。宽度和输入方式由 [Responsive](../05-platforms/responsive.md) 和 [Input Methods](../05-platforms/input-methods.md) 进一步调整。
+**不是三种独立设计系统**。桌面端/移动端 的差异不能改变 shared 文档定义的用户目标、数据含义、保存/删除后果。宽度和输入方式由 [Responsive](../05-platforms/responsive.md) 和 [输入方式](../05-platforms/input-methods.md) 进一步调整。
 
 ## 模式清单
 
@@ -27,13 +27,13 @@
 
 ## 通用文档契约（后续新增模式必须遵守）
 
-1. Purpose / Use Cases — 为什么存在、什么时候使用。
-2. Anatomy — 由哪些区域构成、优先关系。
+1. 用途 / 使用场景 — 为什么存在、什么时候使用。
+2. 结构 — 由哪些区域构成、优先关系。
 3. Specifications — 可验证的尺寸/顺序/边距（尽量引用全局 Token）。
 4. Behavior & States — Loading/Empty/Error/Save/Back 等。
-5. Platform Differences — Desktop/Mobile 专门文档链接。
-6. Do / Don't — 正反例。
-7. Exceptions & Acceptance — 哪些例外合理、如何检查。
+5. 平台差异 — 桌面端/移动端 专门文档链接。
+6. 应该 / 不应该 — 正反例。
+7. 例外 & 验收 — 哪些例外合理、如何检查。
 
 ## 模式组合示例
 

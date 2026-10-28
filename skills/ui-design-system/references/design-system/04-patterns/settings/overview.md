@@ -1,10 +1,10 @@
-# Settings — Shared Pattern
+# Settings — 共享 Pattern
 
-## 1. Purpose
+## 1. 用途
 
 用于偏好、账号、安全、通知、外观等**较稳定的用户配置**。不适合直接承载任务型编辑工作流（复杂编辑请使用 Form Pattern）。
 
-## 2. Anatomy（跨端不变）
+## 2. 结构（跨端不变）
 
 1. **Settings Navigation / Categories**：按用户认知分组，分组名称稳定。
 2. **Page/Section Title**：表达当前类别，必要时有一行说明。
@@ -40,7 +40,7 @@
 - 设置项跳转二级内容后保留来源、当前类别及滚动上下文。
 - Loading/Empty/Error 状态不得把所有分组布局替换成无法恢复的空白。
 
-## 6. Do / Don't
+## 6. 应该 / 不应该
 
 ✅ 分组采用统一行风格；“危险操作”独立呈现。  
 ❌ 同一类设置一会卡片、一会裸表单、一会用彩色大按钮，而无任务差异。  
@@ -49,5 +49,5 @@
 
 ## 7. 平台细则与验收
 
-- [Desktop](desktop.md) · [Mobile](mobile.md) · [视觉结构示例](../../07-examples/settings.md)
+- [桌面端](desktop.md) · [移动端](mobile.md) · [视觉结构示例](../../07-examples/settings.md)
 - 检查：主题切换成功/失败、离线变更、禁用托管项、长标签、大字体、返回时类别状态、危险操作确认。

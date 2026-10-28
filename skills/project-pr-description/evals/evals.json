@@ -3,10 +3,43 @@
   "evals": [
     {
       "id": 1,
-      "name": "生成 PR 描述",
-      "prompt": "根据任务、diff、设计记录和测试输出生成中文 PR 描述。",
-      "expected_output": "包含目标、实现、文档影响、验证和未验证项。",
-      "files": []
+      "prompt": "根据目标、diff、测试和文档影响生成 PR。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/inputs.md",
+        "evals/files/change.patch"
+      ],
+      "expectations": [
+        "包含 Motivation/Changes/Testing/AI Usage",
+        "区分接口和行为变化",
+        "只列已运行测试和未验证 Windows"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "为无行为重构写测试设计。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/inputs.md"
+      ],
+      "expectations": [
+        "说明 old/new 对比或快照证据",
+        "不写虚构行为变化",
+        "列出未验证项"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "PR 后测试变化且新增 review comment。",
+      "expected_output": "中文、证据驱动的报告或产物，明确未验证事项和下一步。",
+      "files": [
+        "evals/files/inputs.md"
+      ],
+      "expectations": [
+        "只更新受影响章节",
+        "保留已有事实",
+        "加入 review 阶段 AI/人工决定"
+      ]
     }
   ]
 }

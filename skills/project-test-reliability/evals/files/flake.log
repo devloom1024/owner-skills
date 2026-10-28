@@ -1,0 +1,2 @@
+worker 2: bind tcp 127.0.0.1:4000: address already in use
+afterEach completed before child process exit

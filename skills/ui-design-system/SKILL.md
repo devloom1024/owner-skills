@@ -19,7 +19,7 @@ metadata:
 
 ## 参考资料路由
 
-从 [设计系统索引](references/design-system/README.md) 开始，再按任务读取参考资料。
+从 [设计系统索引](references/design-system/README.md) 开始，再按任务读取参考资料。交付时读取 [UI 验收清单](references/design-system/06-governance/review-checklist.md)；评估场景见 [evals/evals.json](evals/evals.json)。
 
 | 任务 | 共享参考资料 | 按需参考资料 |
 |---|---|---|

@@ -1,12 +1,34 @@
 # 变更影响报告
 
-| 路径 | 候选所有者 | 状态 | 证据 | 置信度 |
+## 范围
+
+- Base/head 或 worktree basis：
+- Scope command、输出和重跑记录：
+- changed paths（含 rename/delete/untracked）：
+- 排除项：
+
+## 路径影响
+
+| 路径 | canonical owner | owner resolution | contract delta | 状态 | 证据/置信度 |
+|---|---|---|---|---|---|
+| `path` | `docs/subsystems/name.md` | configured/inferred | `<变化>` | covered/not-needed/review-required/missing | `<diff/test/gate>` / high/medium/low |
+
+## 设计和当前事实
+
+- proposed 记录和验收项：
+- 是否完成 proposed → implemented：
+- implemented 当前路径/机制是否准确：
+- archived/rejected 是否被错误当作当前依据：
+
+## 派生物和门禁
+
+| 门禁/生成器 | 是否需要 | 命令 | 结果 | 未验证原因 |
 |---|---|---|---|---|
-| `path` | `docs/subsystems/name.md` | covered/not-needed/review-required/missing | diff、测试、配置 | high/medium/low |
+| generated/type-equiv/doc-typecheck/i18n/snapshot/contract/doc-sync | yes/no | `<command>` | pass/fail/not-run | `<reason>` |
 
-## 语义问题
+## Lessons/事故/升级影响
 
-- 职责、接口、状态或失败是否变化？
-- proposed 记录是否被实现？
-- 是否需要契约生成、Lesson 或升级指南？
-- 哪些命令没有运行？
+- 事故或可复用缺陷：
+- 是否需要 postmortem、规范、升级指南或契约迁移：
+
+`missing` 或 `review-required` 是审查发现，不是自动重写授权。

@@ -12,4 +12,18 @@ Status: implemented
 
 ## Verification
 
+- Tests:
+- Commands:
+- Generated outputs:
+- Unverified:
+
+## Current owners
+
+- Subsystem:
+- Package/API:
+- Contract/guide:
+
 ## Related
+
+- Supersedes:
+- Superseded by:

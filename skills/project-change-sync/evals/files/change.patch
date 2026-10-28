@@ -1,0 +1,4 @@
+diff --git a/packages/api/src/export.ts b/packages/api/src/export.ts
+@@
+-export function exportAll()
++export function exportStream()
