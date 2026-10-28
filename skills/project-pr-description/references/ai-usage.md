@@ -1,6 +1,6 @@
 # AI 使用说明
 
-说明 breakdown、design、testing、implementation、review 五个阶段的 AI 参与和人工决定。可使用项目自定义级别；没有项目级别时至少说明：
+按项目要求说明实际发生的 AI 参与和已知人工决定；没有项目格式时可按 breakdown、design、testing、implementation、review 归类，省略未发生的阶段。未知的人类操作或决定标为未确认，不推断人工已审阅、运行测试或批准。可说明：
 
 - AI 生成了什么；
 - 人工提供或改变了哪些关键设计；

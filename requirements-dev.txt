@@ -1,0 +1,3 @@
+# Repository maintenance only; not needed to use an installed skill.
+PyYAML>=6.0.3,<7
+markdown-it-py>=3,<5

@@ -1,11 +1,9 @@
-# 评估流程
+# 可选行为评估
 
-每个 Skill 至少准备三类场景：
+Skill 的效果要通过实际任务判断，不靠目录或格式证明。本文件只在复现真实误判、比较改写效果或用户明确要求评估时读取；普通使用和常规维护无需建立 evals。
 
-1. 正常场景：验证主要工作流和预期输出；
-2. 边界场景：缺少映射、混合职责、无变化或复杂跨平台条件；
-3. 失败/不确定场景：命令失败、证据不足、冲突或未验证环境。
+优先从使用反馈提炼一个具体问题：原始请求、必要上下文、发生的错误、预期可观察行为。输入必须足以支持判断，不能让 prompt 声称通过而唯一日志显示失败，也不能用同一段样例代表互相矛盾的场景。
 
-每条 eval 使用 `id`、`prompt`、`expected_output`、`files` 和 `expectations`。`expectations` 是可验证陈述，不用未定义的 `name` 字段替代。
+若值得长期防止复发，可保留最小案例，不要求固定 JSON schema、三类场景配额或集中 benchmark。断言检查结果和约束是否满足，不检查逐字措辞或标题是否出现。需要比较时再选择旧版本或 without-skill 作为 baseline，并说明模型、上下文和人工判断的局限。
 
-改进既有 Skill 时保存旧版本作为 baseline；运行 with-skill 与 baseline；记录 outputs、timing、grading、benchmark 和反馈。必要时使用 Skill Creator 的 review viewer；先看定性结果，再依据 assertion pass rate、token、时间和失败模式修改入口或 references。
+区分人工编写的 fixture 与真实运行证据；日志应标明来源并清理敏感信息。运行输出、timing、grading 和临时日志默认放在仓库外的临时目录；只有对复现确有价值的材料才纳入版本控制。不存在真实价值时，不为保留目录而制造样例。

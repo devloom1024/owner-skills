@@ -18,7 +18,13 @@
 
 支持以下 owner 字段：`architecture`、`subsystem`、`package_readme`、`agent_note`、`postmortem`、`standard`、`generated`、`i18n`、`contract`、`guide`、`upgrade_guide` 和 `gates`。
 
-每个映射记录 `configured` 或 `inferred`、证据路径、置信度和验证命令。推断映射只能产生 `review-required`，不能自动成为正式规则。
+映射来源分为：
+
+- `configured`：项目配置明确映射源码到 owner；仍需验证路径和规则未过期。
+- `declared`：AGENTS、当前文档索引、生成器 manifest 或 owner 文档明确声明对应关系，不要求另建 YAML。
+- `inferred`：根据源码边界、链接、调用方、生成器和测试综合推断；说明证据与残余疑问，不自动写成新的项目规则。
+
+每个映射记录来源、证据路径、置信度和适用验证命令。来源类别不是同步状态；证据充分的推断可支持 `covered`、`not-needed` 或 `missing`。只有影响结论的实质不确定性才用 `review-required`。配置与项目声明相互冲突时显式报告，不机械按文件格式决定权威。
 
 ## 项目适配
 

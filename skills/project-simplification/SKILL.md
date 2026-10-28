@@ -9,7 +9,7 @@ description: 发现项目中的重复事实、重复状态、过度抽象、无�
 
 ## 先读什么
 
-读取根/祖先 AGENTS、架构、相关 subsystem/package owner、active Agent Notes、规范、测试策略和 [证据清单](references/evidence-checklist.md)。使用 [候选报告](references/candidate-report.md) 和 [简化提案模板](templates/simplification-proposal.md) 输出；评估场景见 [evals/evals.json](evals/evals.json)。归档记录只作历史参考；新候选需要检查 supersession。
+读取根/祖先 AGENTS、架构、相关 subsystem/package owner、active Agent Notes、规范、测试策略和 [证据清单](references/evidence-checklist.md)。使用 [候选报告](references/candidate-report.md) 和 [简化提案模板](templates/simplification-proposal.md) 输出。归档记录只作历史参考；新候选需要检查 supersession。
 
 ## 检查顺序
 

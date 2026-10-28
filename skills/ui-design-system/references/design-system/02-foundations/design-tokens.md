@@ -35,7 +35,7 @@
 | `focus.ring.offset` | 2px | 焦点轮廓与控件边界的间距 |
 | `elevation.surface/overlay/modal` | subtle / raised / modal | 表面、浮层、模态的语义层级；具体阴影随主题映射 |
 | `z.layer.base/sticky/overlay/modal/toast` | ordered layers | 层级顺序；项目实现不得让低层级覆盖高层级 |
-| `inset.safe.inline/block` | `max(page padding, env(safe-area-inset-*))` | 安全区域与页面内边距的合并策略 |
+| `inset.safe.inline/block` | 见 [安全区合并规则](spacing-layout.md) | 普通页面合并安全区；固定动作容器单独判断，避免重复计算 |
 | `motion.fast/normal/slow` | 120 / 200 / 280 ms | 动效等级（减少动画时关闭非必要动作） |
 
 字体 `字号/行高, 字重` 详见 [Typography](typography.md)；其余细则见 [Colors](colors.md)、[Spacing & Layout](spacing-layout.md)、[Radius & Elevation](radius-elevation.md)、[Icons & Motion](icons-motion.md)。**此表与分项文档冲突时，以分项文档详细场景限定为准；若数值发生变更，必须同步此总表。**
@@ -46,7 +46,7 @@
 
 ## Exceptions / 例外机制
 
-只有专业编辑器、极高密度表格、图形画布等特殊任务可以申请 compact 差异，**但不能牺牲可访问性**；理由写入项目级设计决策，并在回归检查中覆盖。
+项目已有 Token 与批准适配优先于本表建议值；新的密度或品牌差异按 [例外机制](../06-governance/exceptions-versioning.md) 记录依据，并验证受影响状态。不能牺牲可访问性。
 
 ## 验收
 

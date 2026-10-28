@@ -1,3 +1,0 @@
-diff --git a/src/session.ts b/src/session.ts
-@@
-+export async function close() { socket.close() }

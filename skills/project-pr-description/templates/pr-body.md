@@ -12,6 +12,13 @@
 
 ### 设计、文档、契约和升级影响
 
+- 设计记录：
+- 变更影响：
+- 文档/契约：
+- 升级指南：
+
+### 风险
+
 ## Testing
 
 ### Test design
@@ -22,6 +29,8 @@
 |---|---|---|---|---|
 | `<command>` | `<behavior>` | local/CI | pass/fail | `<log/screenshot/link>` |
 
+### 未验证项
+
 ## AI Usage
 
 | 阶段 | AI 参与 | 人工决定 |
@@ -31,12 +40,3 @@
 | testing | `<level>` | `<decision>` |
 | implementation | `<level>` | `<decision>` |
 | review | `<level>` | `<decision>` |
-
-## 未验证项和风险
-
-## 相关链接
-
-- 设计记录：
-- 变更影响：
-- 文档/契约：
-- 升级指南：

@@ -32,4 +32,4 @@ docs/
 
 ## 状态
 
-当前文档使用现在时态；设计文档使用 `proposed`、`implemented`、`rejected`、`archived` 生命周期；生成物标注 source/generator；候选事实标记来源和置信度。
+当前文档使用现在时态；设计文档遵循项目已有 ADR/决策生命周期，没有约定时才参考 `proposed`、`implemented`、`rejected`、`archived`。生成物标注 source/generator；候选事实标记来源和置信度，不把采纳的方案等同于已实现行为。

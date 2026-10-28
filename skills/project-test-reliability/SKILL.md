@@ -18,7 +18,7 @@ description: 设计、审查和诊断会受 CI 并发、共享资源、时钟、
 3. 使用 `listen(0)`、`mkdtemp`、唯一 namespace、exclusive creation 和依赖注入，避免先检查再占用；
 4. 捕获全局状态的 absent/present 原态，立即注册恢复，在最小范围用 `try/finally`，必要时保留 afterEach fallback；
 5. 用 readiness event、barrier、promise、状态转换和明确条件同步，不用固定 sleep；
-6. 让 timeout 与 lane budget 匹配，setup/teardown 一起预算；
+6. 让 timeout 与 lane budget 匹配，setup/teardown 一起预算；恢复误缩小的既有预算或依据测量调整有界等待是有效修复，但需证明同步与清理正确；
 7. 停止后等待 child/server/worker/任务真正退出；`abort/close/kill` 未等待完成不算清理；
 8. 用 invalid negative control、真实入口、外部状态和修复前失败证明回归；stress 不能替代确定性回归；
 9. 检查 Windows/POSIX、权限、路径、环境名、文件句柄和时间精度；
@@ -26,8 +26,6 @@ description: 设计、审查和诊断会受 CI 并发、共享资源、时钟、
 
 ## 拒绝掩盖 flaky 的修复
 
-增加 timeout、重试、全局串行化、吞错、弱断言、归一化不稳定行为或加 sleep 不能作为根因修复；只有项目明确允许的外部 provider 瞬态重试例外可以保留。
+拒绝没有根因证据的 timeout 扩大、重试、全局串行化、吞错、弱断言或固定 sleep。不要把“增大 timeout”本身判为错误：既有 lane budget 被误缩短，或测量证明合理操作的有界等待不足时，可以调整并记录依据、上界和 setup/teardown 余量。共享资源确实要求串行或外部 provider 允许瞬态重试时，限制到最小范围并说明条件；它们不能替代缺失的 readiness、隔离和退出等待。
 
-## 评估
-
-正常、边界和失败/不确定场景见 [evals/evals.json](evals/evals.json)，输入 fixture 位于 `evals/files/`。
+诊断请求保持只读；用户明确要求修复测试时在授权范围编辑，并验证修复前失败、修复后通过及清理行为。

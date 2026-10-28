@@ -9,16 +9,16 @@
 
 ## 2. 路径影响
 
-| 路径 | canonical owner | configured/inferred | contract delta | 状态 | 证据 | 置信度 |
+| 路径 | canonical owner | configured/declared/inferred | contract delta | 状态 | 证据 | 置信度 |
 |---|---|---|---|---|---|---|
 | `path` | `<owner>` | `<mode>` | `<变化>` | covered/not-needed/review-required/missing | `<path/command>` | high/medium/low |
 
 ## 3. 设计和事实
 
-- proposed 验收项与实现：
-- proposed → implemented：
-- implemented/current 文档准确性：
-- archived/rejected 排除情况：
+- 设计验收项与实现：
+- 项目生命周期与交付状态同步：
+- 当前文档准确性：
+- 历史、拒绝和未实现记录的排除情况：
 
 ## 4. 派生物和门禁
 

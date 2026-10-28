@@ -1,5 +1,0 @@
-paths:
-  packages/api/**:
-    subsystem: docs/subsystems/api.md
-    package_readme: packages/api/README.md
-checks: [local-links, generated-freshness]

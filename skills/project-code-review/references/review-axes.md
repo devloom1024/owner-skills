@@ -33,6 +33,6 @@
 ## 文档和设计
 
 - proposed 验收是否满足？
-- 实现是否同变更转写 implemented 并同步当前 owner？
+- 实现是否按项目 ADR/设计规则记录交付状态并同步当前 owner，而非机械改名为 implemented？
 - architecture、subsystem、package README、规范、postmortem、生成物和升级指南是否各归其主职责？
 - archived 记录是否被错误当作当前依据？

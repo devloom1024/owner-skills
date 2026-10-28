@@ -6,8 +6,10 @@
 - `references/`：需要按任务加载的规则和背景；
 - `templates/`：输出骨架和必填字段；
 - `scripts/`：确定性、重复、可测试的执行任务；
-- `evals/`：正常、边界、失败/不确定场景和可验证 expectations；
+- `evals/`：可选的真实失败回归或专项行为评估，不是运行依赖；
 - `agents/`：工具或客户端元数据；
 - `assets/`：输出所需静态资产。
 
-根 README、CHANGELOG 和 LICENSE 由仓库根目录统一维护。Skill 不复制项目事实、产品契约或其他 Skill 的完整规则。
+根 README、CHANGELOG 和 LICENSE 统一维护仓库说明、版本和授权。参考目录可以用 README 导航；独立分发可携带简短 NOTICE 或必要的 LICENSE，避免安装后丢失署名和许可信息。不要在每个 Skill 内复制仓库介绍或发布记录。
+
+Skill 不复制项目事实、产品契约或其他 Skill 的完整规则。跨 Skill 协作按任务需要选择；未安装辅助 Skill 时，执行当前入口能支持的必要检查并说明缺口，不要求用户安装整套库。

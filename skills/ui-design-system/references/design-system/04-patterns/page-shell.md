@@ -19,7 +19,7 @@
 
 ## 参考尺寸
 
-桌面端 Page Padding 24px（宽屏可 32px）；移动端 Content Padding 16px + Safe Area；设置阅读宽 720px，表单阅读宽 640px。来自 [Foundations](../02-foundations/design-tokens.md)。
+桌面端 Page Padding 24px（宽屏可 32px）；移动端基准 16px，按 [安全区合并规则](../02-foundations/spacing-layout.md) 处理 inset；设置阅读宽 720px，表单阅读宽 640px。尺寸来自 [Foundations](../02-foundations/design-tokens.md)，项目已有 Token 优先。
 
 ## 验收
 

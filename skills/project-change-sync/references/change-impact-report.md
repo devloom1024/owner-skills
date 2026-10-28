@@ -11,14 +11,14 @@
 
 | 路径 | canonical owner | owner resolution | contract delta | 状态 | 证据/置信度 |
 |---|---|---|---|---|---|
-| `path` | `docs/subsystems/name.md` | configured/inferred | `<变化>` | covered/not-needed/review-required/missing | `<diff/test/gate>` / high/medium/low |
+| `path` | `<实际 owner>` | configured/declared/inferred | `<变化>` | covered/not-needed/review-required/missing | `<diff/test/gate>` / high/medium/low |
 
 ## 设计和当前事实
 
-- proposed 记录和验收项：
-- 是否完成 proposed → implemented：
-- implemented 当前路径/机制是否准确：
-- archived/rejected 是否被错误当作当前依据：
+- 项目设计生命周期、记录和验收项：
+- 实现状态和偏差是否按项目规则同步：
+- 当前路径/机制是否准确：
+- 历史、拒绝或未实现决定是否被错误当作当前依据：
 
 ## 派生物和门禁
 

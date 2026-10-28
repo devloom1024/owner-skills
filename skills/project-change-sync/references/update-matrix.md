@@ -1,12 +1,14 @@
 # 更新矩阵
 
+下列路径仅表示职责；映射到项目实际 owner，不要求创建这些目录。双语、类型等价、预算等检查只在项目已有且变化相关时适用。
+
 | 变化 | 首选所有者 | 需要检查的派生物和证据 |
 |---|---|---|
 | 系统组合、主循环、扩展点或高层运行路径 | `architecture.md` | 调用路径、架构图、集成测试 |
 | 类型、语义、实现边界或生成 API | 对应 `subsystems/<name>.md` | 源类型、JSDoc、type-equiv、生成 freshness、测试 |
 | 包配置、公开接口、限制、扩展点或消费者行为 | 包 README | manifest、exports、调用方、包测试 |
 | 本地审查规则、资源/错误/安全模式 | `standards/` 或项目等价规则层 | 规则来源、门禁、负例和审查证据 |
-| 持久化设计理由、替代方案或架构取舍 | `agent-notes/implemented/` | 决策、后果、当前路径、验证；提案完成需同步转换 |
+| 持久化设计理由、替代方案或架构取舍 | 项目 ADR/决策记录 | 决策、后果、当前路径、验证；交付状态按项目生命周期同步 |
 | 真实事故和因果链 | `postmortem/` 或项目明确的 lessons 层 | 复现、影响、根因、预防和回归测试 |
 | 机器契约源 | contract source + contract index | 生成器、漂移检查、兼容性和语义 owner |
 | 生成参考或 catalog | canonical source/generator | freshness、生成命令、禁止手改 |

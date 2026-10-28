@@ -13,13 +13,13 @@ metadata:
 
 1. 确定任务模式：实现 UI、审查已有 UI，或扩展系统中的 Pattern、Token 和适配器。
 2. 确定主要 Pattern、运行平台、可用容器空间和输入方式。不要把窄窗口等同于手机，也不要把触控输入等同于小布局。
-3. 发生冲突时按以下顺序处理：无障碍和平台约束、全局 Token 和组件语义、Pattern 的 `overview.md`、Pattern 的桌面/移动文件，最后是有记录的项目例外。使用规范强度区分 `MUST`、`SHOULD` 和 `MAY`。
+3. 先识别项目已采用的设计系统、组件、Token 和已批准适配，再依据 [规范强度与优先级](references/design-system/06-governance/normative-levels.md) 处理冲突。项目视觉基线优先于本 Skill 的默认建议，但不能绕过安全、无障碍和平台强制约束。
 4. 只读取当前任务和 Pattern 需要的参考资料，技术适配器按所选技术栈加载。
 5. 实现或审查后，报告使用的 Pattern 和参考资料、复用的组件和 Token、验证的视口和输入条件、检查的状态，以及记录的例外。
 
 ## 参考资料路由
 
-从 [设计系统索引](references/design-system/README.md) 开始，再按任务读取参考资料。交付时读取 [UI 验收清单](references/design-system/06-governance/review-checklist.md)；评估场景见 [evals/evals.json](evals/evals.json)。
+从 [设计系统索引](references/design-system/README.md) 开始，再按任务读取参考资料。交付时读取 [UI 验收清单](references/design-system/06-governance/review-checklist.md)。
 
 | 任务 | 共享参考资料 | 按需参考资料 |
 |---|---|---|
@@ -30,9 +30,9 @@ metadata:
 
 Pattern 位于 `references/design-system/04-patterns/<pattern>/`，示例位于 `07-examples/`。示例是结构参考，不是强制模板。
 
-## 唯一规范来源
+## 规范来源与项目接入
 
-已安装 Skill 的 `references/design-system/` 是 UI 设计规范的唯一来源。项目通过链接和 `AGENTS.example.md` 接入，不复制第二份规范。
+`references/design-system/` 是本 Skill 的共享基线，不替代项目已有设计系统。项目复用既有组件和 Token，只记录采用范围及适配差异，不复制第二份会独立漂移的规范。需要建立接入约定时参考 [AGENTS 示例](references/design-system/AGENTS.example.md)，不要机械覆盖项目规则。
 
 ## 规范强度
 

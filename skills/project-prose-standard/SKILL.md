@@ -9,9 +9,10 @@ description: 审查和改进项目中的中文技术文案、Markdown、JSDoc、
 
 ## 输入和范围
 
-1. 要求明确 `scope`、项目根、分支/PR 基准和 `automatic` 或 `interactive` 模式；缺少范围时报告缺口，不自行扫描全仓库。
+1. 从请求和上下文确定范围：指定文件就处理文件，指定 PR/diff 就核实对应基准，“全仓库润色”已明确授权仓库范围。无需再索要形式化 `scope` 或模式参数；只有无法合理确定且影响结果时才提问。
 2. 遵守项目 AGENTS 排除 vendor、归档快照、生成产物和不在授权范围内的路径。
-3. 先读取文档/代码所有者，再判断句子；位置和事实所有权由 `project-docs` 决定。
+3. 先读取文档/代码所有者，再判断句子；文档归属按项目规则，涉及重组时可参考 `project-docs`，不要求安装它。
+4. 审查请求默认只读；改写请求默认在范围内直接编辑并报告。只有用户要求逐项确认时使用 `interactive`；遇到会改变契约的实质歧义先保留原意并说明，不把整项任务停在规划。
 
 ## 保留完整命题
 
@@ -34,13 +35,9 @@ description: 审查和改进项目中的中文技术文案、Markdown、JSDoc、
 2. 搜索重复规则、过期状态、推理泄漏和缺失命题；
 3. 按 `keep`、`add`、`trim`、`restore`、`restructure`、`defer` 分类；
 4. 更新 owner 后再更新派生文档或翻译；
-5. 运行项目要求的链接、文档、行为、locale、snapshot 和 `git diff --check` 检查；
+5. 编辑后运行项目已有且与本次修改相关的链接、文档、locale、snapshot 或行为检查，以及 `git diff --check`；只读审查不运行会改写产物的命令；
 6. 报告清晰修改、保留内容、延后项、来源和已运行命令。
 
 ## 参考资料
 
 读取 [文案示例](references/examples.md) 校准完整命题；复杂 scope、模式或项目门禁以项目自己的 AGENTS 和文档规范为准。
-
-## 评估
-
-正常、边界和失败/不确定场景见 [evals/evals.json](evals/evals.json)，输入 fixture 位于 `evals/files/`。

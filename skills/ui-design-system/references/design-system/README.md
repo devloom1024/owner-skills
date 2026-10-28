@@ -2,7 +2,7 @@
 
 > **定位**：跨项目、跨设备的 UI **设计规范**，不是 React 组件库。  
 > **适用**：优先支持 React + TypeScript + shadcn/ui，也可以作为其他技术栈的设计依据。
-> **设计规范版本**：v1.1.1 · 2026-10-25。Skill 包版本由仓库根目录统一管理，不与规范版本混用。
+> **采用版本**：记录实际安装的 owner-skills tag 或 commit；本目录不另行维护版本号。
 
 ## 一句话原则
 
@@ -10,7 +10,7 @@
 
 ## 使用边界
 
-本目录是 `ui-design-system` Skill 的唯一参考资料。Skill 按任务从这里读取文档；项目通过链接接入，不复制第二套 UI 规范。AI 接入方式见 Skill 根目录的 `SKILL.md` 和 `AGENTS.example.md`。
+本目录维护 `ui-design-system` 的共享参考基线；项目已有设计系统和已批准的适配优先，不复制第二套规范。AI 按任务读取相关资料，接入方式见 [Skill 入口](../../SKILL.md) 和 [AGENTS 示例](AGENTS.example.md)。
 
 ## 设计目标
 
@@ -34,7 +34,7 @@
 | 可选 | `adapters` | 如何映射到 React、shadcn/ui 和 Tailwind？ |
 | 项目接入 | `AGENTS.example.md` | 如何约束 AI 编码工具？ |
 
-规范强度与 `MUST`、`SHOULD`、`MAY` 的解释见 `06-governance/normative-levels.md`。
+规范强度与 `MUST`、`SHOULD`、`MAY` 的解释见 [规范强度](06-governance/normative-levels.md)。
 
 ## 页面模式
 
@@ -42,11 +42,7 @@ Settings、List、Detail、Form、Navigation 和 Overlays 都使用共享的 `ov
 
 ## 规范优先级
 
-1. 无障碍与平台系统强制约束；
-2. 全局基础规则、Tokens 和组件语义；
-3. 目标 Pattern 的共享行为；
-4. 目标平台的呈现和交互；
-5. 有记录的项目例外。
+以 [规范强度与优先级](06-governance/normative-levels.md) 为准。不要把本 Skill 的默认视觉数值置于项目已采用的设计系统和批准适配之上，也不要用例外绕过安全或无障碍要求。
 
 窗口宽度、指针类型和操作系统发生差异时，根据可用容器空间、输入方式和平台行为分别判断，不使用单一宽度阈值代替平台分析。
 
@@ -59,7 +55,7 @@ Settings、List、Detail、Form、Navigation 和 Overlays 都使用共享的 `ov
 
 ## 版本和授权
 
-设计规范版本与 Skill 仓库版本分开管理。仓库统一版本和变更记录见根目录 [CHANGELOG.md](../../../../CHANGELOG.md)。授权信息见根目录 [LICENSE](../../../../LICENSE)。
+版本和变更由 [owner-skills 仓库](https://github.com/devloom1024/owner-skills) 统一管理，已发布版本见 [Releases](https://github.com/devloom1024/owner-skills/releases)。独立安装保留 Skill 内的 [NOTICE](../../NOTICE)，包含署名、来源和 CC BY 4.0 许可链接；这些引用不依赖仓库根目录。
 
 ## 参考来源
 
