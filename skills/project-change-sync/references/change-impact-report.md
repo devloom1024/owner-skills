@@ -26,9 +26,14 @@
 |---|---|---|---|---|
 | generated/type-equiv/doc-typecheck/i18n/snapshot/contract/doc-sync | yes/no | `<command>` | pass/fail/not-run | `<reason>` |
 
-## Lessons/事故/升级影响
+## 事故、规范、契约和升级影响
 
-- 事故或可复用缺陷：
-- 是否需要 postmortem、规范、升级指南或契约迁移：
+仅填写与变更相关的内容；缺陷经验和规范按 [更新矩阵](update-matrix.md) 检查，不要求每个 PR 新建记录。
+
+- 事故或可复用缺陷、根因和已有记录：
+- 规范候选或已有规则、适用范围与项目采纳依据：
+- 检测办法、实际验证结果、覆盖局限与提升条件缺口：
+- 项目明确要求的同步、可选改进建议与待决定项：
+- 是否需要升级指南或契约迁移：
 
 `missing` 或 `review-required` 是审查发现，不是自动重写授权。

@@ -8,7 +8,7 @@
 
 ### 设计与文档
 
-- [`project-docs`](skills/project-docs/SKILL.md)：建立、整理、审计和验证项目文档。
+- [`project-docs`](skills/project-docs/SKILL.md)：初始化、整理、审计和验证项目文档，维护开发规范的来源、采纳与验证依据。
 - [`project-design-notes`](skills/project-design-notes/SKILL.md)：管理 MVP 设计、提案、已实现决策和生命周期。
 - [`project-change-sync`](skills/project-change-sync/SKILL.md)：检查代码变化是否同步到正确的文档所有者和验证门禁。
 - [`project-prose-standard`](skills/project-prose-standard/SKILL.md)：审查文档、注释、JSDoc、提示词和诊断文案。
@@ -35,7 +35,8 @@
 
 | 任务 | 主 Skill | 按需补充 |
 |---|---|---|
-| 建立文档、更新单页、整理目录 | `project-docs` | 有新增长期取舍时用 `project-design-notes`；文案编辑用 `project-prose-standard` |
+| 初始化文档、更新单页、整理目录 | `project-docs` | 有新增长期取舍时用 `project-design-notes`；文案编辑用 `project-prose-standard` |
+| 从实践或缺陷经验提炼、维护开发规范 | `project-docs` | 仅审计变更中的规范同步时用 `project-change-sync`；区分候选、项目采纳与验证证据 |
 | 检查代码变化是否遗漏文档同步 | `project-change-sync` | 确认需要编辑后用 `project-docs` |
 | 设计方案或维护 ADR | `project-design-notes` | 当前事实文档需要同步时用 `project-docs` |
 | 审查 PR/commit/worktree | `project-code-review` | 有同步、测试可靠性或兼容性风险时才补相关 Skill |

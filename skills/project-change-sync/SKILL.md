@@ -13,7 +13,7 @@ description: 检查代码、配置、契约、生成器和设计变更是否同�
 
 1. [范围预检](references/scope-preflight.md)；
 2. [来源与所有权](references/ownership-mapping.md)；
-3. [更新矩阵](references/update-matrix.md)；
+3. [更新矩阵](references/update-matrix.md)，涉及规范或可复用缺陷时读取其中的专项检查；
 4. [变更影响报告](references/change-impact-report.md)；
 5. [报告模板](templates/change-impact-report.md) 和 [项目映射模板](templates/docs-governance.yml)。
 
@@ -26,7 +26,7 @@ description: 检查代码、配置、契约、生成器和设计变更是否同�
 5. **判断语义影响**：结合 diff、公开 API、消费者、配置 precedence、状态/失败/兼容性、生成关系、测试和任务描述。代码 diff 不是语义变化的唯一证据。
 6. **检查设计收敛**：遵循项目状态和不可变 ADR 规则，区分目标、采纳决定与已交付事实。项目采用 `proposed → implemented` 时检查对应收敛；归档或拒绝记录不作为当前实现证据。
 7. **检查适用门禁**：只检查项目已有且与本次影响相关的 freshness、类型、链接、双语、快照、契约或升级验证。使用只读检查或已有结果；会改写文件的生成命令不自动执行。区分 pass/fail/not-run，不适用项说明理由。
-8. **生成报告**：每条相关路径给出状态、canonical owner、owner evidence、contract delta、命令及结果、未验证原因和下一步。必要时生成 Lesson/postmortem/defensive-patterns 候选，但不自动提升规范。
+8. **生成报告**：每条相关路径给出状态、canonical owner、owner evidence、contract delta、命令及结果、未验证原因和下一步。涉及规范或可复用缺陷时，分开核实项目采纳依据与验证方式；必要时在报告中提出经验或规范候选及待满足条件，不创建记录或自动提升规范。
 
 ## 状态
 
