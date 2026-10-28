@@ -9,6 +9,8 @@ paths:
   packages/<group>/<package>/**:
     subsystem: docs/subsystems/<group>.md
     package_readme: packages/<group>/<package>/README.md
+    # 核实实际的当前决策 owner 后替换示例路径。
+    agent_note: .agents/notes/implemented/architecture/<decision>.md
   schemas/**:
     contract: docs/contracts/<name>.md
     generated: generated/<name>.*

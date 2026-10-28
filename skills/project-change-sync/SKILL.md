@@ -13,20 +13,19 @@ description: 检查代码、配置、契约、生成器和设计变更是否同�
 
 1. [范围预检](references/scope-preflight.md)；
 2. [来源与所有权](references/ownership-mapping.md)；
-3. [更新矩阵](references/update-matrix.md)，涉及规范或可复用缺陷时读取其中的专项检查；
-4. [变更影响报告](references/change-impact-report.md)；
-5. [报告模板](templates/change-impact-report.md) 和 [项目映射模板](templates/docs-governance.yml)。
+3. [更新矩阵](references/update-matrix.md)，涉及规范或可复用缺陷时读取其中的专项检查。
+
+涉及 Notes 位置、生命周期、替代关系或归档变更时，再读 [决策记录变更检查](references/note-transitions.md)。
 
 ## 工作流
 
-1. **固定范围**：优先验证 PR base/exact head。项目有 `change-scope` 命令时先运行它；没有 PR 时分别记录 staged、unstaged、untracked、renamed 和 deleted paths。base/head 变化、retarget 或 merge 后重新运行范围预检。
-2. **读取路由**：读取根及每个变更路径祖先的 `AGENTS.md`、项目 `docs/AGENTS.md`、任务/PR、设计记录、当前事实所有者和验证入口。排除依赖、缓存、归档快照和第三方代码，但记录排除项。
-3. **收集全量路径**：不只读取 Markdown；包括源码、测试、配置、manifest、契约源、生成器、生成物、脚本、快照、双语文件和升级记录。
-4. **解析所有权**：记录配置映射 `configured`、项目显式声明 `declared` 或证据推断 `inferred`，附证据和置信度。配置与 AGENTS/当前 owner 冲突时报告冲突，不因存在 YAML 就视为权威。
-5. **判断语义影响**：结合 diff、公开 API、消费者、配置 precedence、状态/失败/兼容性、生成关系、测试和任务描述。代码 diff 不是语义变化的唯一证据。
-6. **检查设计收敛**：遵循项目状态和不可变 ADR 规则，区分目标、采纳决定与已交付事实。项目采用 `proposed → implemented` 时检查对应收敛；归档或拒绝记录不作为当前实现证据。
-7. **检查适用门禁**：只检查项目已有且与本次影响相关的 freshness、类型、链接、双语、快照、契约或升级验证。使用只读检查或已有结果；会改写文件的生成命令不自动执行。区分 pass/fail/not-run，不适用项说明理由。
-8. **生成报告**：每条相关路径给出状态、canonical owner、owner evidence、contract delta、命令及结果、未验证原因和下一步。涉及规范或可复用缺陷时，分开核实项目采纳依据与验证方式；必要时在报告中提出经验或规范候选及待满足条件，不创建记录或自动提升规范。
+1. **固定范围**：按范围预检验证 base/head 或 worktree 范围，收集完整 changed paths；比较基线变化时重新预检。
+2. **读取路由**：读取任务/PR、根及变更路径的有效指令、当前事实所有者和相关验证入口。
+3. **解析所有权**：记录配置映射 `configured`、项目显式声明 `declared` 或证据推断 `inferred`，附证据和置信度。配置与 AGENTS/当前 owner 冲突时报告冲突，不因存在 YAML 就视为权威。
+4. **判断语义影响**：结合 diff、公开 API、消费者、配置 precedence、状态/失败/兼容性、生成关系、测试和任务描述。代码 diff 不是语义变化的唯一证据。
+5. **检查设计收敛**：核实当前决策 owner，区分目标、采纳与交付，检查设计偏差及当前文档；历史、拒绝和未实现记录不作当前实现证据。
+6. **检查适用门禁**：只检查项目已有且与本次影响相关的 freshness、类型、链接、双语、快照、契约或升级验证。使用只读检查或已有结果；会改写文件的生成命令不自动执行。区分 pass/fail/not-run，不适用项说明理由。
+7. **生成报告**：按 [报告模板](templates/change-impact-report.md) 汇总路径结论、证据和缺口。涉及规范或可复用缺陷时，分开核实项目采纳依据与验证方式；必要时提出经验或规范候选及待满足条件，不创建记录或自动提升规范。
 
 ## 状态
 
@@ -39,7 +38,7 @@ description: 检查代码、配置、契约、生成器和设计变更是否同�
 
 ## 项目差异
 
-`docs-governance.yml` 是可选映射，不是运行前提。字段与解析方式见 [来源与所有权](references/ownership-mapping.md)；仅采用项目真实存在的 owner 和 checks，不把模板占位路径或门禁当成正式规则。
+`docs-governance.yml` 是可选映射，不是运行前提。字段与解析方式见 [来源与所有权](references/ownership-mapping.md)，需要配置示例时参考 [项目映射模板](templates/docs-governance.yml)；仅采用项目真实存在的 owner 和 checks，不把模板占位路径或门禁当成正式规则。
 
 ## 安全边界
 

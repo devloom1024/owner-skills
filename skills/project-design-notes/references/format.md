@@ -1,15 +1,7 @@
 # 设计记录格式
 
-优先使用项目现有模板；以下为默认生命周期的骨架。按实际复杂度选择章节，不为填标题制造内容。
+优先使用项目现有模板；下列模板用于默认生命周期，已有字段和不可变正文按项目规则适配。按实际复杂度取用章节，不为填标题制造内容。
 
-## proposed
-
-至少包含 `## Problem`、`## Proposal`、`## Alternatives considered`、`## Acceptance criteria` 和 `## Risks`；复杂 MVP 另外说明 Goals、Scope、Open questions 和 Verification。
-
-## implemented
-
-包含 Problem、Decision、Alternatives considered 和 Consequences；补充实际测试、验证、当前路径、限制和相关文档。未来计划与历史验收记录需要明确状态，不混入当前事实。
-
-## rejected
-
-保留 Problem、Proposal、Alternatives 和明确的 Rejection reason；Status 应包含拒绝结论。
+- [提案模板](../templates/proposed-note.md)：保留问题、方案、备选、验收和风险，区分目标与现状；验收项写成可观察结果，扩展章节按复杂度取用。
+- [已实现模板](../templates/implemented-note.md)：用现在时态描述实际行为，补足测试、验证、限制和当前文档；未来计划与历史验收项明确完成状态，不混入当前事实。
+- [被拒绝模板](../templates/rejected-note.md)：给出明确的否决结论，保留拒绝理由与仍有意义的防误用信息。

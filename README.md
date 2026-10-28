@@ -2,14 +2,14 @@
 
 由 `devloom1024` 维护的中文 Codex Skill 仓库。
 
-最近已发布版本：`1.1.1`；工作区后续调整见 [未发布记录](CHANGELOG.md)。
+最近已发布版本：`1.2.0`；完整变化见 [变更日志](CHANGELOG.md)。
 
 ## Skill 目录
 
 ### 设计与文档
 
 - [`project-docs`](skills/project-docs/SKILL.md)：初始化、整理、审计和验证项目文档，维护开发规范的来源、采纳与验证依据。
-- [`project-design-notes`](skills/project-design-notes/SKILL.md)：管理 MVP 设计、提案、已实现决策和生命周期。
+- [`project-design-notes`](skills/project-design-notes/SKILL.md)：在 `.agents/notes/` 统一管理 MVP 提案、架构决策（ADR）、替代关系和归档。
 - [`project-change-sync`](skills/project-change-sync/SKILL.md)：检查代码变化是否同步到正确的文档所有者和验证门禁。
 - [`project-prose-standard`](skills/project-prose-standard/SKILL.md)：审查文档、注释、JSDoc、提示词和诊断文案。
 
@@ -39,6 +39,7 @@
 | 从实践或缺陷经验提炼、维护开发规范 | `project-docs` | 仅审计变更中的规范同步时用 `project-change-sync`；区分候选、项目采纳与验证证据 |
 | 检查代码变化是否遗漏文档同步 | `project-change-sync` | 确认需要编辑后用 `project-docs` |
 | 设计方案或维护 ADR | `project-design-notes` | 当前事实文档需要同步时用 `project-docs` |
+| 明确请求将决策记录迁移到本库规范 | `project-docs` | 决策语义与替代关系用 `project-design-notes`；迁移差异审计用 `project-change-sync` |
 | 审查 PR/commit/worktree | `project-code-review` | 有同步、测试可靠性或兼容性风险时才补相关 Skill |
 | 诊断或修复 flaky test | `project-test-reliability` | 有外部契约变化时再检查同步和升级影响 |
 | 生成 PR 描述或迁移指南 | `project-pr-description` / `project-upgrade-guide` | 只读取相关的设计、diff 和验证证据 |
@@ -112,9 +113,15 @@
 
 每个 Skill 只携带真正支持任务的流程、参考资料、模板、脚本和资产。仓库级说明、版本变化和授权由本文件、根 CHANGELOG 和 LICENSE 统一维护；参考目录的导航 README 与独立分发需要的 NOTICE/LICENSE 是合理例外。
 
-目标项目已有的 AGENTS、文档组织、ADR 生命周期、发布流程和设计系统优先于通用模板。审计请求保持只读；明确要求编辑时执行授权范围内的修改；创建 tag、发布或外部迁移不由普通编辑请求自动授权。
+目标项目已有的 AGENTS、决策语义、冻结约束、发布流程和设计系统优先于通用模板，不以示例替代项目有效规则。审计保持只读，明确编辑请求在授权范围内执行；创建 tag、发布或其他项目的修改不由修改 Skill 自动授权。
 
 Skill 的说明、流程、理由和报告使用中文；稳定的 English controlled vocabulary 保留原样。Skill 名称、目录名、路径、命令、代码、API、协议字段、Pattern、Token、状态值和门禁名称不翻译。详细规则见 `skills/skill-maintenance/references/terminology.md`。
+
+### 决策记录约定
+
+项目根下 `.agents/notes/` 是唯一活跃决策记录根，架构类 Agent Notes 承担 ADR 职责。这是本库约定，不是所有工具的强制目录标准。当前事实由 `docs/` 和包 README 拥有，长期理由由 Notes 拥有，以链接关联，不双写正文。
+
+职责与状态见 [文档模型](skills/project-docs/references/document-model.md)，日常组织见 [目录组织](skills/project-design-notes/references/organization.md)，只读审计见 [决策记录变更检查](skills/project-change-sync/references/note-transitions.md)。仅在用户明确请求迁移时加载 [决策记录迁移](skills/project-docs/references/notes-migration.md)；这是一次性任务，不随安装、初始化或日常维护启动。
 
 ## 验证与使用反馈
 

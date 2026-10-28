@@ -2,17 +2,19 @@
 
 ## 通用解析顺序
 
-1. 项目根和变更路径祖先的 `AGENTS.md`；
+1. 项目根和变更路径祖先的 `AGENTS.md`；跨目录引用按声明范围使用，`docs/AGENTS.md` 不自动约束 Notes；
 2. 架构地图：系统组合、循环、扩展点和高层运行路径；
 3. subsystem：类型、语义、实现边界和生成 API；
 4. 包 README：配置、公开接口、限制、扩展点和消费者体验；
-5. Agent Note：持久化设计理由和替代方案；
+5. `.agents/notes/` 中的 Agent Note：持久化设计理由和替代方案，架构类记录承担 ADR 职责；
 6. postmortem/incident：事故因果链和预防；
 7. standards/defensive patterns：审查规则及其门禁；
 8. contract source/generator：机器可读契约及派生物；
 9. guides/upgrade guides：面向用户或维护者的操作和迁移。
 
-项目可以用不同目录名表达同一职责，必须以内容和 AGENTS 路由判断，不能只按文件名判断。
+职责与所有权必须结合实际内容和 AGENTS 路由判断，不按路径名推定，也不把示例位置当成已经存在的 owner。
+
+递归查找已确认的 Notes 根并显式包含隐藏目录，不只查 `docs/` 或第一层文件；状态与分类不代替所有权证据。
 
 ## 配置映射
 

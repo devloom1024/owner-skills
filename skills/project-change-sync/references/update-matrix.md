@@ -8,7 +8,8 @@
 | 类型、语义、实现边界或生成 API | 对应 `subsystems/<name>.md` | 源类型、JSDoc、type-equiv、生成 freshness、测试 |
 | 包配置、公开接口、限制、扩展点或消费者行为 | 包 README | manifest、exports、调用方、包测试 |
 | 本地审查规则、资源/错误/安全模式 | `standards/` 或项目等价规则层 | 采纳依据、适用范围、验证方式、门禁覆盖、负例和审查证据 |
-| 持久化设计理由、替代方案或架构取舍 | 项目 ADR/决策记录 | 决策、后果、当前路径、验证；交付状态按项目生命周期同步 |
+| 持久化设计理由、替代方案或架构取舍 | 当前决策 owner | 决策、后果、当前路径和交付证据 |
+| Notes 移动、重新分类、状态转换或归档 | 记录 owner + 活跃引用 | 按 [决策记录变更检查](note-transitions.md) 审计 |
 | 真实事故和因果链 | `postmortem/` 或项目明确的 lessons 层 | 复现、影响、根因、预防和回归测试 |
 | 机器契约源 | contract source + contract index | 生成器、漂移检查、兼容性和语义 owner |
 | 生成参考或 catalog | canonical source/generator | freshness、生成命令、禁止手改 |
