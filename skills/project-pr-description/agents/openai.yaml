@@ -1,0 +1,3 @@
+interface:
+  display_name: "PR 描述"
+  short_description: "根据变更证据生成或更新中文 PR 描述。"

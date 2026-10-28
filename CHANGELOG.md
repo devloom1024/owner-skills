@@ -5,7 +5,9 @@
 ## [Unreleased]
 
 - 删除仅用于维护本仓库 Skill 的 `skill-maintenance`，不再把仓库维护能力作为可分发 Skill。
-- README 保留职责、任务选择、通用使用和验证说明，移除安装教程与宿主工具专属目录/命令。
+- 增加面向使用者项目的 Codex Plugin manifest、本地安装器、安装诊断和 core/quality/ui/full profiles。
+- 增加 `project-skill-router` 作为使用者项目的显式入口，按任务选择主 Skill、辅助 Skill 和 `audit/edit/publish` 模式。
+- README 恢复面向消费者的安装、调用、更新和排障说明；补充使用者项目工作流文档。
 
 ## [1.2.0] - 2026-10-28
 

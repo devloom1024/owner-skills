@@ -184,11 +184,52 @@ class Validator:
                 self.check_file(path, boundary, folder.name)
 
     def check_repository(self, root):
-        for name in ("README.md", "CHANGELOG.md", "LICENSE"):
+        for name in ("README.md", "CHANGELOG.md", "LICENSE", "profiles.json"):
             if not (root / name).is_file():
                 self.error(root / name, "required repository file is missing")
+        plugin = root / ".codex-plugin" / "plugin.json"
+        if not plugin.is_file():
+            self.error(plugin, "required repository file is missing")
+        else:
+            try:
+                data = json.loads(plugin.read_text(encoding="utf-8"))
+                if data.get("name") != "owner-skills":
+                    self.error(plugin, "plugin name must be owner-skills")
+                if not isinstance(data.get("version"), str) or not data["version"].strip():
+                    self.error(plugin, "plugin version must be a non-empty string")
+                if data.get("skills") != "./skills/":
+                    self.error(plugin, "plugin skills must point to ./skills/")
+            except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+                self.error(plugin, f"invalid plugin manifest: {exc}")
+        profiles_path = root / "profiles.json"
+        self.check_file(profiles_path, root)
+        if profiles_path.is_file():
+            try:
+                profiles = json.loads(profiles_path.read_text(encoding="utf-8"))
+                skill_names = {
+                    path.name
+                    for path in (root / "skills").iterdir()
+                    if path.is_dir() and not path.name.startswith(".")
+                }
+                if not isinstance(profiles, dict) or not profiles:
+                    self.error(profiles_path, "profiles must be a non-empty object")
+                else:
+                    for profile, names in profiles.items():
+                        if not isinstance(names, list) or not names:
+                            self.error(profiles_path, f"profile {profile!r} must contain skills")
+                            continue
+                        for name in names:
+                            if not isinstance(name, str) or name not in skill_names:
+                                self.error(profiles_path, f"profile {profile!r} references unknown skill {name!r}")
+            except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+                self.error(profiles_path, f"invalid profiles file: {exc}")
+        self.check_file(plugin, root)
         for path in sorted(root.glob("*.md")):
             self.check_file(path, root)
+        docs_root = root / "docs"
+        if docs_root.is_dir():
+            for path in sorted(docs_root.rglob("*.md")):
+                self.check_file(path, root)
         for path in sorted((root / "scripts").rglob("*.py")):
             self.check_file(path, root)
         skills_root = root / "skills"

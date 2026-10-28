@@ -1,0 +1,3 @@
+interface:
+  display_name: "变更同步审计"
+  short_description: "检查代码变化是否同步到正确的文档和规范 owner。"

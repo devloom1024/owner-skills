@@ -1,0 +1,30 @@
+{
+  "core": [
+    "project-skill-router",
+    "project-docs",
+    "project-code-review",
+    "project-change-sync"
+  ],
+  "quality": [
+    "project-test-reliability",
+    "project-prose-standard",
+    "project-simplification",
+    "project-upgrade-guide"
+  ],
+  "ui": [
+    "ui-design-system"
+  ],
+  "full": [
+    "project-skill-router",
+    "project-docs",
+    "project-design-notes",
+    "project-change-sync",
+    "project-code-review",
+    "project-test-reliability",
+    "project-pr-description",
+    "project-prose-standard",
+    "project-upgrade-guide",
+    "project-simplification",
+    "ui-design-system"
+  ]
+}

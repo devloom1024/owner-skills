@@ -6,6 +6,10 @@
 
 ## Skill 目录
 
+### 使用入口
+
+- [`project-skill-router`](skills/project-skill-router/SKILL.md)：根据任务选择主 Skill、辅助 Skill 和 `audit/edit/publish` 模式。
+
 ### 设计与文档
 
 - [`project-docs`](skills/project-docs/SKILL.md)：初始化、整理、审计和验证项目文档，维护开发规范的来源、采纳与验证依据。
@@ -25,6 +29,44 @@
 
 - [`ui-design-system`](skills/ui-design-system/SKILL.md)：跨桌面、移动、触控、键盘和响应式布局的 UI 设计规范。
 
+## 使用者项目快速开始
+
+本仓库是 Skill 的源代码和分发入口。使用者应把需要的 Skill 安装到自己的项目中，再从那个项目启动 Agent；本仓库本身不作为使用者项目的运行目录。
+
+### Codex Plugin
+
+优先使用 Codex 的 Plugin 安装入口安装 `owner-skills`。安装后从使用者项目根目录启动 Codex，宿主会发现插件中的 Skill。
+
+### 本地 checkout
+
+维护者或需要可编辑副本时，可以使用本仓库提供的安装器：
+
+```bash
+python3 /path/to/owner-skills/scripts/install_skills.py \
+  --target /path/to/your-project \
+  --profile core
+```
+
+可用 profile：
+
+- `core`：路由、文档、代码审查和变更同步；
+- `quality`：测试可靠性、文案、简化和升级指南；
+- `ui`：UI 设计系统；
+- `full`：全部 Skill。
+
+也可以只安装指定 Skill：
+
+```bash
+python3 /path/to/owner-skills/scripts/install_skills.py \
+  --target /path/to/your-project \
+  --skill project-code-review \
+  --skill project-change-sync
+```
+
+默认复制文件以便锁定版本。维护本仓库时可以使用 `--mode link` 跟随本地源文件。安装目标是使用者项目的 `.agents/skills/`，不会修改本仓库的源目录。
+
+更完整的安装、更新和排障说明见 [使用者项目快速开始](docs/consumer-guide.md)。
+
 ## 按任务选择
 
 不要求每项开发工作依次运行整套 Skill。先选择主要职责，只有实际需要时才补充：
@@ -42,11 +84,36 @@
 | UI 实现或审查 | `ui-design-system` | 沿用项目现有设计系统；按技术栈读取 adapter |
 | 简化项目 | `project-simplification` | 先区分审计和编辑授权 |
 
+如果无法判断主 Skill，先使用 `project-skill-router`；它只负责路由，不替代专项 Skill。
+
 辅助 Skill 不可用时，依据项目规则和当前入口完成必要检查，说明证据缺口，不要求为一次任务启用全套 Skill。
 
 ## 使用
 
-在请求中直接写出 Skill 名称即可，具体调用形式由宿主 Agent 负责解析。例如：“使用 `project-code-review` 审查当前变更”。先选择一个主 Skill，只有任务确实需要时才补充其他 Skill；不要求固定顺序，也不要求一次使用全部 Skill。
+不知道从哪里开始时，在使用者项目中显式调用路由 Skill：
+
+```text
+$project-skill-router 我想审查当前分支相对 main 的变更
+```
+
+已知目标 Skill 时可以直接调用：
+
+```text
+$project-code-review 审查当前分支相对 main 的变更
+```
+
+路由 Skill 会给出任务类型、`audit/edit/publish` 模式、主 Skill、辅助 Skill 和下一步。每个任务先选择一个主 Skill，只有存在直接影响时才补充辅助 Skill；不要求固定顺序，也不要求一次使用全部 Skill。
+
+使用者项目中的完整路线见 [使用者项目工作流](docs/workflows.md)。
+
+检查安装是否生效：
+
+```bash
+python3 /path/to/owner-skills/scripts/skill_doctor.py \
+  --target /path/to/your-project
+```
+
+如果宿主没有显示新安装的 Skill，重启宿主后再检查。更新 Skill 时重新安装目标版本，不要覆盖使用者项目自己的 `AGENTS.md`、文档、Notes 或本地适配。
 
 ## 使用规则
 
@@ -73,6 +140,7 @@ python3 -m venv /absolute/path/outside-repo/owner-skills-venv
 source /absolute/path/outside-repo/owner-skills-venv/bin/activate
 python3 -m pip install -r requirements-dev.txt
 python3 scripts/validate_skills.py
+python3 scripts/test_consumer_install.py
 git diff --check
 ```
 
@@ -88,6 +156,7 @@ python3 scripts/validate_skills.py --skill /absolute/path/to/skill-directory
 - Markdown 中的本地文件链接，包括图片和引用式链接；忽略代码块、外部 URL 和锚点内容，不扫描行内代码里的示例路径；
 - Skill 内实际 JSON/YAML 语法与 Python 脚本语法，不执行文档示例或生成命令；
 - 默认 PR 模板四章节、升级指南文件头、分发所需 NOTICE 或 LICENSE；
+- Plugin manifest、profiles 和 Skill metadata 的结构与引用一致性；
 - Skill 内本地链接和软链接是否越过其独立分发边界。
 
 任何文件失败都会汇总并返回非零退出码，不会被最后一个成功项覆盖。它不检查外部链接可达性、模型效果、所有普通文本依赖或 UI 可访问性；references 路由与语义仍需人工审阅。需要时可补充运行 Skill Creator 的 `quick_validate.py`，不依赖其本机安装路径。

@@ -1,0 +1,40 @@
+{
+  "name": "owner-skills",
+  "version": "1.2.0",
+  "description": "中文项目治理、变更审查、文档维护、测试可靠性和 UI 设计 Skills。",
+  "author": {
+    "name": "devloom1024",
+    "url": "https://github.com/devloom1024/owner-skills"
+  },
+  "homepage": "https://github.com/devloom1024/owner-skills",
+  "repository": "https://github.com/devloom1024/owner-skills",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "skills",
+    "code-review",
+    "documentation",
+    "testing",
+    "ui",
+    "project-governance"
+  ],
+  "skills": "./skills/",
+  "hooks": {},
+  "interface": {
+    "displayName": "Owner Skills",
+    "shortDescription": "中文项目治理与工程质量工作流",
+    "longDescription": "用于项目文档、设计记录、代码审查、变更同步、测试可靠性、升级指南、简化审计和 UI 设计的中文 Agent Skills。",
+    "developerName": "devloom1024",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "帮我判断这个任务应该使用哪个 Skill。",
+      "审查当前项目的变更并给出有证据的发现。"
+    ],
+    "websiteURL": "https://github.com/devloom1024/owner-skills",
+    "brandColor": "#0F766E",
+    "screenshots": []
+  }
+}

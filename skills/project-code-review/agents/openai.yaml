@@ -1,0 +1,3 @@
+interface:
+  display_name: "项目代码审查"
+  short_description: "根据目标、设计、代码、文档和验证证据审查变更。"

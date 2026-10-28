@@ -1,0 +1,3 @@
+interface:
+  display_name: "升级指南"
+  short_description: "识别破坏性变化并生成外部消费者的升级指南。"

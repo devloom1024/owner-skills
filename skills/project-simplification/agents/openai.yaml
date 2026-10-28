@@ -1,0 +1,6 @@
+interface:
+  display_name: "项目简化"
+  short_description: "发现重复事实、过度抽象和不必要的维护复杂度。"
+
+policy:
+  allow_implicit_invocation: false
